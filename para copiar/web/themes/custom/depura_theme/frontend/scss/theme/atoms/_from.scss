@@ -1,0 +1,82 @@
+%form{
+  & > * {
+    padding: 0 space(1) space(.5);
+
+    @include up-to(s){
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+%form-item {
+  justify-content: space-between;
+  margin: 0;
+
+  @include up-to(s){
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  label {
+    color: $green;
+    font-weight: 800;
+    margin-bottom: space(.25);
+    margin-left: rem(30px);
+    @extend %body-s;
+  }
+}
+
+%form-control{
+  border: 2px solid $green;
+  border-radius: $corner-l;
+  font-size: rem(21px);
+  min-height:  $corner-l;
+  padding: space(.25) space(1) !important;
+}
+
+%form-textarea {
+  border-radius: $corner-m;
+  min-height:  $corner-l * 3.5;
+}
+
+%form-item-terms{
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  margin: space(.5) 0;
+  padding-bottom: 0;
+
+  @include up-to(m){
+    padding-top: space(2);
+  }
+
+  label{
+    color: $black;
+    font-weight: 400;
+    margin-bottom: 0;
+    margin-left: space(.5);
+
+    a{
+      color: $black;
+      font-weight: 700;
+    }
+  }
+
+  input {
+    border: 3px solid $green;
+    border-radius: 0;
+    margin: 0;
+    transition: all 0.3s ease-in;
+    @include square(2em);
+
+    &:checked{
+      background-color: $green;
+    }
+  }
+}
+
+%form-tel{
+  padding-left: space(2.25) !important;
+}
+

@@ -1,0 +1,56 @@
+*[class*="bg-"] {
+  .carousel-arrows__arrow{
+    fill: $white;
+  }
+}
+
+*[class*="bg-alabaster"]{
+  .carousel-arrows__arrow{
+    fill: $green;
+    filter: drop-shadow(rem(1.5px) rem(2.5px) 0 $alabaster);
+  }
+}
+
+*[class*="bg-white"], *[class*="bg-clean"]{
+  .carousel-arrows__arrow{
+    fill: $green;
+    filter: drop-shadow(rem(1.5px) rem(2.5px) 0 $white);
+  }
+}
+
+*[class*="bg-green"] {
+  .carousel-arrows__arrow{
+    filter: drop-shadow(rem(1.5px) rem(2.5px) 0 $green);
+  }
+}
+
+*[class*="bg-green-lt"] {
+  .carousel-arrows__arrow{
+    filter: drop-shadow(rem(1.5px) rem(2.5px) 0 $green-lt);
+  }
+}
+
+*[class*="bg-black"] {
+  .carousel-arrows__arrow{
+    filter: drop-shadow(rem(1.5px) rem(2.5px) 0 $black);
+  }
+}
+
+*[class*="bg-blue"] {
+  .carousel-arrows__arrow{
+    filter: drop-shadow(rem(1.5px) rem(2.5px) 0 $blue);
+  }
+}
+
+*[class*="bg-brown"] {
+  .carousel-arrows__arrow{
+    filter: drop-shadow(rem(1.5px) rem(2.5px) 0 $brown);
+  }
+}
+
+*[class*="bg-orange"] {
+  .carousel-arrows__arrow{
+    filter: drop-shadow(rem(1.5px) rem(2.5px) 0 $orange);
+  }
+}
+

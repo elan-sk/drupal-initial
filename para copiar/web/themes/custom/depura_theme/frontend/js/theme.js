@@ -1,0 +1,8 @@
+// import './components/footer-utils'
+import './components/gallery-carousel'
+import './components/lazy-loading'
+import './components/logos-carousel'
+import './components/main-slider'
+import './components/menu'
+import './components/progress-scroll'
+import './components/slider-mini'

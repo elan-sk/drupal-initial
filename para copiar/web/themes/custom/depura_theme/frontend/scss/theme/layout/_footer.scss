@@ -1,0 +1,109 @@
+.main-footer {
+  border-radius: $corner-l $corner-l 0 0;
+  margin-top: rem(-60px) !important;
+  position: relative;
+  text-align: center;
+  z-index: 1;
+
+  * {
+    @extend %reset-transition;
+    background-color: transparent;
+  }
+
+  div{
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    margin:0;
+    @include from(m){
+      flex-direction: row;
+      margin: rem(20px) auto 0;
+      padding: 0;
+    }
+  }
+  nav{
+    background-color: transparent;
+    .nav-item{
+      font-weight: bold;
+    }
+  }
+  &__gestion{
+    font-weight: bold;
+    @include from(m){
+      text-align: justify;
+      width: 31%;
+    }
+  }
+  &-logo{
+    align-items: center;
+    display: flex;
+    @include from(m){
+      width: 31%;
+    }
+    &__white{
+      @include imageBg('../img/logo-sisepuede_white.svg');
+      height: rem(150px);
+      width:rem(250px);
+      margin: auto;
+      @include from(l){
+        height: rem(150px);
+        width:rem(350px);
+      }
+    }
+  }
+  &__datos{
+    margin: 0 0 rem(20px);
+    .menu--redes{
+      margin: 0 0 rem(20px);
+      .navbar-nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap:rem(30px);
+        @include from(m){
+          justify-content:flex-end;
+        }
+        li{
+          a[href*="facebook"] {
+            @include imageBg('../img/icons/Facebook.svg', rem(40px), rem(40px));
+          }
+          a[href*="instagram"] {
+            @include imageBg('../img/icons/Instagram.svg', rem(40px), rem(40px));
+          }
+          a[href*="linkedin"] {
+            @include imageBg('../img/icons/LinkedIn.svg', rem(40px), rem(40px));
+          }
+        }
+      }
+    }
+    @include from(m){
+      text-align: end;
+      width: 31%;
+    }
+  }
+  &__copy{
+    div{
+      margin:0;
+      padding: 0;
+      section{
+        align-items: center;
+        display: flex;
+        margin: 0;
+        div{
+          background-color: $green;
+          a{
+            font-weight: 600;
+            text-decoration: none;
+          }
+          p{
+            font-size: rem(16px);
+            margin:0;
+          }
+        }
+        .field__label{
+          display: none;
+        }
+      }
+    }
+  }
+}

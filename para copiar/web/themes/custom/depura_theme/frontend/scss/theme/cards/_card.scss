@@ -1,0 +1,19 @@
+.card {
+  border: none !important;
+  &, * {
+    background-color: transparent !important;
+  }
+
+  &__title {
+    &, & > *:not(.root) {
+      font-weight: bold;
+    }
+  }
+
+  &__body {
+    &, & > *:not(.root) {
+      @extend %body-s;
+    }
+  }
+}
+

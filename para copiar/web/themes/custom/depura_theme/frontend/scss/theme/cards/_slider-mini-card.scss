@@ -1,0 +1,25 @@
+.slider-mini-card {
+  &__image {
+    @include fluid-aspect(5 4, 'img');
+    width: 100%;
+
+    @include from(m){
+      @include fluid-aspect(18 21, 'img');
+      @include width(rem(125px))
+    }
+  }
+
+
+  &__title {
+    &:not(.root), *:not(.root) {
+      font-size: rem(20px);
+    }
+  }
+
+  &__button {
+    &, * {
+      font-size: rem(15px);
+    }
+  }
+
+}

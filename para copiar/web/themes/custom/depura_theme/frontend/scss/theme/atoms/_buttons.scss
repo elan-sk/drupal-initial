@@ -1,0 +1,58 @@
+body {
+  %button-primary, .button-primary {
+    @extend %button-text;
+    background-color: $orange;
+    border: 2px solid $orange;
+    border-radius: rem(50px);
+    display: block;
+    padding: rem(12px) rem(50px);
+    transition: all .32s ease-in-out;
+    color: $white;
+    @include from(m) {
+      display: inline-block;
+    }
+    &:hover, &:active, &:focus {
+      background-color: $green-lt;
+      border: 2px solid $green-lt;
+    }
+  }
+  %button-primary--vr, .button-primary--vr {
+    @extend %button-primary;
+    background-color: $blue;
+    border: 2px solid $blue;
+  }
+  %button-header, .button-header {
+    display: flex;
+    align-items: center;
+    @extend %button-primary;
+    border: 3px solid $green-lt;
+    padding: rem(3px) rem(10px);
+    &:hover, &:active, &:focus {
+      background-color: $green-lt;
+    }
+    a{
+      background-color: $green-lt;
+      font-weight: 600;
+      font-size: rem(17px);
+      @include from(xl){
+        font-size: rem(18.5px);
+      }
+    }
+    span{
+      @include imageBg('../img/icons/whatsapp.png', rem(25px), rem(25px));
+    }
+  }
+  %button-secondary, .button-secondary {
+    @extend %button-text;
+    background: transparent;
+    border: none;
+    color: $green;
+    &:hover, &:active, &:focus {
+      color: $orange;
+    }
+  }
+  %button-link, .button-link {
+    @extend %button-secondary;
+    color: $orange;
+  }
+}

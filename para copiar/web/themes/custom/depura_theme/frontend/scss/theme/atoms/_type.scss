@@ -1,0 +1,30 @@
+.type {
+  font-size: rem(16px);
+  color: $white;
+  font-weight: 800;
+  padding: space(.15) space(.5);
+  border-radius: rem(15px);
+
+  &-news{
+    &--term-9 {
+      background-color: $blue;
+    }
+    &--term-10 {
+      background-color: $orange;
+    }
+    &--term-11 {
+      background-color: $green-lt;
+    }
+  }
+
+  &-project {
+    &--term-13 {
+      background-color: $green-lt;
+    }
+    &--term-14 {
+      background-color: $brown;
+    }
+  }
+
+}
+

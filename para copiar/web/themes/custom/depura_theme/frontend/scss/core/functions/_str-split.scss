@@ -1,0 +1,24 @@
+@function str-split($str, $substr) {
+  $nList: ();
+
+  @while str-index("#{$str}", "#{$substr}") != null {
+    @if (str-index("#{$str}", "#{$substr}") > 1) {
+      $nList: append(
+        $nList,
+        str-slice("#{$str}", 1, str-index("#{$str}", "#{$substr}") - 1)
+      );
+    }
+
+    $str: str-slice(
+      "#{$str}",
+      str-index("#{$str}", "#{$substr}") + 1,
+      str-length("#{$str}")
+    );
+  }
+
+  @if (str-slice("#{$str}", 1, str-length("#{$str}")) != "") {
+    $nList: append($nList, str-slice("#{$str}", 1, str-length("#{$str}")));
+  }
+
+  @return $nList;
+}

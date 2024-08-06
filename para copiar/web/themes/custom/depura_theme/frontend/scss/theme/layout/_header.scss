@@ -1,0 +1,126 @@
+.main-header {
+  position: fixed;
+  top: 0;
+  @include width(100%);
+  z-index: 8888;
+
+  .dropdown-item.active,
+  .media-library-view--widget .view-header a.dropdown-item.is-active,
+  .dropdown-item:active {
+    background-color: $orange;
+    color: $white;
+  }
+
+  &__nav{
+    @include from(xl){
+      margin: 0 space(2);
+    }
+  }
+  &-mb{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 rem(15px);
+    width: 100%;
+    @include from(l){
+      width: auto;
+    }
+    &__branding{
+      div{
+        margin: 0;
+        padding: 0;
+        .site-logo{
+          img{
+            flex:1 0 rem(100px);
+            margin:0;
+          }
+        }
+      }
+      margin: 0;
+    }
+    .navbar-toggler{
+      @include imageBg('../img/menu-open.png', rem(50px), rem(50px));
+    }
+  }
+  &__navbar{
+    background-color: $alabaster;
+    padding: 0 0 0 rem(20px);
+    position:absolute;
+    right:0;
+    top:7vh;
+    width: rem(250px);
+    z-index: 3000;
+    @include from(l){
+      padding: 0;
+      position: relative;
+      top:0;
+    }
+    div{
+      display: flex;
+      width: 100%;
+      nav{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        ul{
+          background-color: $alabaster;
+          width: 100%;
+          @include from(l){
+            background-color: transparent;
+          }
+        }
+        li{
+          .nav-link{
+            color:$green;
+          }
+          @include from(l){
+            margin:0 auto;
+          }
+        }
+      }
+    }
+    margin: 0;
+    .nav-item{
+      color: $green;
+      font-size: rem(17.5px);
+      @include from(xl){
+        font-size: rem(18.5px);
+      }
+      a {
+        &:hover{
+          color: $green;
+        }
+      }
+    }
+    .dropdown{
+      &>a{
+      color: $green !important;
+      }
+      ul{
+        background-color: $alabaster;
+        border: none;
+        padding: 0;
+        width: rem(220px);
+        a{
+          white-space: pre-wrap;
+        }
+      }
+    }
+  }
+  &__whatsapp2{
+    margin:rem(20px) 0;
+    @include from(l){
+      display: none !important;
+    }
+    a{
+      color: $white !important;
+    }
+  }
+
+  .site-title {
+    display: none;
+  }
+}
+
+.navbar-nav .nav-link.active:not(.root){
+  color: $green;
+}

@@ -1,0 +1,11 @@
+.gallery-carousel {
+  &__subtitle {
+    * {
+      max-width: rem(1000px);
+      text-align: center;
+    }
+  }
+  .field__label {
+    display: none;
+  }
+}

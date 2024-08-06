@@ -1,0 +1,95 @@
+.pagination {
+  $size: rem(40px);
+  gap: space(0.25);
+  margin-bottom: space(-1.5);
+
+  .page-item {
+    & > a,
+    & > span {
+      align-items: center;
+      border: none;
+      border-radius: 50% !important;
+      color: $green;
+      display: flex;
+      font-weight: 700;
+      height: $size;
+      justify-content: center;
+      line-height: 1;
+      width: $size;
+      font-size: rem(22px);
+
+      span {
+        font-weight: 600;
+      }
+
+      &:hover, &:active, &:focus {
+        background-color: $green;
+        border-color: $blue;
+        color: $white;
+      }
+    }
+
+    &.active {
+      & > a,
+      & > span {
+        background-color: $green;
+        color: $white;
+
+        &:hover {
+          border-color: $green;
+        }
+      }
+    }
+  }
+
+  li[class*="pager__item"] {
+    & > a,
+    & > span {
+      border-radius: $size / 2 !important;
+      width: initial;
+    }
+  }
+
+  .pager__item {
+    &--first {
+      span {
+        display: none;
+      }
+      a {
+        &::after {
+          content: "Primero";
+        }
+      }
+    }
+    &--previous {
+      span {
+        display: none;
+      }
+      a {
+        &::after {
+          content: "Anterior";
+        }
+      }
+    }
+    &--next {
+      span {
+        display: none;
+      }
+      a {
+        &::after {
+          content: "Siguiente";
+        }
+      }
+    }
+    &--last {
+      span {
+        display: none;
+      }
+      a {
+        &::after {
+          content: "Final";
+        }
+      }
+    }
+  }
+}

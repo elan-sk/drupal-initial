@@ -1,0 +1,19 @@
+.block-image{
+  background-color: $white;
+  margin: space(1) 0;
+  &__image{
+    margin: 0 auto;
+    width: 100%;
+    @include from(m){
+      width: 90%;
+    }
+    img{
+      display: block;
+      height: rem(300px);
+      width: 100%;
+      @include from(m){
+        height: auto;
+      }
+    }
+  }
+}

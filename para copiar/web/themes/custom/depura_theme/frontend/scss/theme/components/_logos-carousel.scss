@@ -1,0 +1,13 @@
+.logos-carousel {
+  padding-bottom: space(2.5);
+  padding-top: space(2);
+
+  &__carousel-dots {
+    .slick-dots {
+      li{
+        bottom: rem(-20px);
+      }
+    }
+  }
+
+}

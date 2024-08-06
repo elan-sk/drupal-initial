@@ -1,0 +1,15 @@
+%link {
+  @extend %button-text;
+  color: $black;
+  display: inline-block;
+  text-decoration: none;
+  transform: all .32s ease-in-out;
+
+  &:hover {
+    color: $blue;
+  }
+}
+
+.link {
+ display: inline-block;
+}

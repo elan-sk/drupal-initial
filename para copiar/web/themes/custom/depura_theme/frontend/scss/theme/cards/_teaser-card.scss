@@ -1,0 +1,22 @@
+.teaser-card {
+  @include from(l){
+    max-width: rem(375px);
+  }
+
+  &__header {
+    &:not(.root), & *:not(.root){
+      text-wrap: initial;
+    }
+  }
+
+  &__image {
+    @include fluid-aspect(16 11, 'img');
+    position: relative;
+  }
+
+  &__content-type {
+    position: absolute;
+    top: space(.75);
+    right: space(.75);
+  }
+}

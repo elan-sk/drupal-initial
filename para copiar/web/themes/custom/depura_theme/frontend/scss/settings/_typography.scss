@@ -1,0 +1,109 @@
+html:not(.root) {
+  font-size: 15px;
+}
+
+%h1, .h1:not(.root), .h1:not(.root) *, h1:not(.root) {
+  color: $green;
+  font-family: $font-primary;
+  font-size: rem(33px);
+  font-weight: 800;
+  text-wrap: balance;
+
+  @include from(l) {
+    font-size: rem(44px);
+  }
+}
+
+%h2, .h2:not(.root), .h2:not(.root) *, h2:not(.root) {
+  @extend %h1;
+  font-size: rem(26px);
+
+  @include from(l) {
+    font-size: rem(37px);
+  }
+}
+
+%h3, .h3:not(.root), .h3:not(.root) *, h3:not(.root) {
+  @extend %h2;
+  font-size: rem(21px);
+  @include from(l){
+    font-size: rem(29px);
+  }
+}
+
+%h4, .h4:not(.root), .h4:not(.root) *, h4:not(.root) {
+  @extend %h3;
+  font-size: rem(18px);
+  @include from(l){
+    font-size: rem(25px);
+  }
+}
+
+%small-text, .small-tex, .small-tex * {
+  @extend %h3;
+  color: $black;
+  font-size: rem(12px);
+
+  @include from(l) {
+    font-size: rem(16px);
+  }
+}
+
+%button-text, .button-text, .button-text * {
+  @extend %h1;
+  cursor: pointer;
+  font-size: rem(16px);
+  text-align: center;
+  text-decoration: none;
+
+  @include from(l){
+    font-size: rem(20px);
+  }
+}
+
+%body, .body, .body * {
+  @extend %h2;
+  color: $black;
+  font-size: rem(16px);
+  font-weight: 400;
+  text-wrap: initial;
+  @include from(l){
+    font-size: rem(20px);
+  }
+}
+
+%body-s, .body-s, .body-s * {
+  @extend %body;
+  font-size: rem(16px);
+  font-weight: 400;
+}
+
+p, ul:not(.root), ol:not(.root), div {
+  @extend %body;
+}
+
+strong, b {
+  font-family: $font-primary;
+  font-weight: 800;
+}
+
+
+%corner-s, .corner-s{
+  border-radius: $corner-s;
+  overflow: hidden;
+}
+
+%corner-m, .corner-m{
+  border-radius: $corner-m;
+  overflow: hidden;
+}
+
+%corner-l, .corner-l{
+  border-radius: $corner-l;
+  overflow: hidden;
+}
+
+%corner-bottom, .corner-bottom {
+  border-radius: 0 0 $corner-m $corner-m;
+  overflow: hidden;
+}

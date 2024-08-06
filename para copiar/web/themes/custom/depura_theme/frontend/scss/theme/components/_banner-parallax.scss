@@ -1,0 +1,24 @@
+.banner-parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: space(4) 0;
+
+  &__content {
+    padding: 0 space(.5);
+    padding-top: space(7);
+
+    @include from(m){
+      padding: 0;
+    }
+  }
+
+
+  &__body {
+    & > * {
+      margin-bottom: space(1);
+      text-align: center;
+    }
+  }
+}

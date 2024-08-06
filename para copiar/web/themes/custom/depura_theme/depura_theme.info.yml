@@ -1,0 +1,30 @@
+name: 'Depura Theme'
+type: theme
+description: 'Depura Theme subtheme based on Bootstrap 5 theme.'
+core_version_requirement: '^9.4 || ^10'
+'base theme': bootstrap5
+libraries:
+  - depura_theme/fa_cdn
+  - depura_theme/fonts_cdn
+  - depura_theme/slider_cdn
+  - depura_theme/material_cdn
+  - depura_theme/global-styling
+regions:
+  header: Header
+  nav_branding: 'Navigation branding region'
+  nav_main: 'Main navigation region'
+  nav_whatsapp: 'Menu whatsapp region'
+  nav_additional: 'Additional navigation region (eg search form, social icons, etc)'
+  breadcrumb: Breadcrumbs
+  content: 'Main content'
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  footer_colum1: 'columna 1'
+  footer_colum3: 'columna 3'
+  footer_copy: 'footer copy'
+  footer: Footer
+
+# Exclude specific CSS files from aggregation.
+exclude:
+  - core/misc/dialog/off-canvas/css/base.css
+
