@@ -1,11 +1,10 @@
 // Colors
-$alabaster: #F8F1EA;
+$alabaster: #F8F5F0;
 $white: #ffffff;
 $green: #0B6546;
-$green-lt: #69B355;
+$green-lt: #8ECD0F;
 $black: #000000;
-$blue: #3494D0;
-$blue-lt: #8ECEF2;
+$blue-lt: #99C8FB;
 $brown: #6B451E;
 $orange: #EC733A;
 
@@ -16,7 +15,6 @@ $variant-color: (
   "green":$green,
   "green-lt":$green-lt,
   "black":$black,
-  "blue":$blue,
   "blue-lt":$blue-lt,
   "brown":$brown,
   "orange":$orange,
@@ -24,7 +22,7 @@ $variant-color: (
 );
 
 // Fonts
-$font-primary: 'Nunito Sans', sans-serif;
+$font-primary: "Red Hat Display", sans-serif;
 
 // header utils
 $header_height_m: rem(84px);
@@ -34,3 +32,6 @@ $header_height_l: rem(86px);
 $corner-s: rem(20px);
 $corner-m: rem(30px);
 $corner-l: rem(60px);
+
+
+

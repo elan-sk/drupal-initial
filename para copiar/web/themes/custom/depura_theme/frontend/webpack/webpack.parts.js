@@ -27,20 +27,20 @@ exports.configureDevServer = (serverAddress, publicPath, port, siteURL) => ({
     'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
     'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization',
   },
-  hot: true,
-  liveReload: true,
+  // hot: true,
+  // liveReload: true,
   watchFiles: [
     '../../**/*.twig',
   ],
-  open: true,
-  port,
-  proxy: {
-    '**': {
-      target: siteURL,
-      secure: false,
-      changeOrigin: true,
-    }
-  },
+  // open: true,
+  // port,
+  // proxy: {
+  //   '**': {
+  //     target: siteURL,
+  //     secure: false,
+  //     changeOrigin: true,
+  //   }
+  // },
   static: {
     publicPath: publicPath,
   },

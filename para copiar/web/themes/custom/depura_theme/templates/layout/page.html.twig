@@ -46,23 +46,24 @@
 set nav_classes = 'navbar navbar-expand-lg' ~
   (b5_navbar_schema != 'none' ? " navbar-#{b5_navbar_schema}" : ' ') ~
   (b5_navbar_schema != 'none' ? (b5_navbar_schema == 'dark' ? ' text-light' : ' text-dark' ) : ' ') ~
-  (b5_navbar_bg_schema != 'none' ? " bg-#{b5_navbar_bg_schema}" : ' ')
+  (b5_navbar_bg_schema != ' ')
 %}
 
 {%
 set footer_classes = ' ' ~
   (b5_footer_schema != 'none' ? " footer-#{b5_footer_schema}" : ' ') ~
   (b5_footer_schema != 'none' ? (b5_footer_schema == 'dark' ? ' text-light' : ' text-dark' ) : ' ') ~
-  (b5_footer_bg_schema != 'none' ? " bg-#{b5_footer_bg_schema}" : ' ')
+  (b5_footer_bg_schema != ' ')
 %}
 
-<div id="loader" class="loader active">
+{# <div id="loader" class="loader active">
   <div class="loader__icon">
     <div class="loader__img">
     </div>
   </div>
   <div class="loader__text">Cargando...</div>
-</div>
+</div> #}
+
 
 <div class="top-header">
   {{ page.top_header }}
@@ -72,9 +73,9 @@ set footer_classes = ' ' ~
 
   {% if page.nav_branding or page.nav_main or page.nav_additional %}
   <div class="row g-0">
+    <span class="col-5 bg-green-lt pb-2"></span>
     <span class="col-5 bg-orange pb-2"></span>
-    <span class="col-5 bg-blue pb-2"></span>
-    <span class="col-2 bg-blue-lt pb-2"></span>
+    <span class="col-2 bg-brown pb-2"></span>
   </div>
   <nav class="{{ nav_classes }} main-header__nav justify-content-center">
     <div class="{{ b5_top_container }} main-header__container g-0 d-flex m-0">
@@ -101,9 +102,6 @@ set footer_classes = ' ' ~
       </div>
     </div>
   </nav>
-  <div id="progress-scroll" class="progress-scroll">
-    <div class="progress-scroll__bar bg-orange pb-1"></div>
-  </div>
   {% endif %}
 </header>
 
@@ -155,32 +153,33 @@ set footer_classes = ' ' ~
 {% endif %}
 
 {% if page.footer %}
-<footer class="{{footer_classes}} main-footer p-0 bg-green co-white pt-5">
-  <div class="{{ b5_top_container }} d-flex">
-    {% if page.footer_colum1 %}
-      <div class="main-footer__gestion">
-        {{ page.footer_colum1 }}
+<footer class="{{footer_classes}} main-footer reset-transition p-0 bg-alabaster co-brown pb-2 p-5">
+  <div class="{{ b5_top_container }}">
+    <div class=" row g-0 ">
+      <div class="main-footer__left col-lg-4 d-flex flex-column justify-content-center mb-4 mb-lg-0">
+        {% if page.footer_left %}
+          {{ page.footer_left }}
+        {% endif %}
       </div>
-    {% endif %}
-    <div class="main-footer-logo">
-      <span class="main-footer-logo__white">
-      </span>
-    </div>
-    {% if page.footer_colum3 %}
-      <div class="main-footer__datos">
-        {{ page.footer_colum3 }}
+      <div class="main-footer__center col-lg-4 d-flex flex-column justify-content-center  mb-4 mb-lg-0">
+        {% if page.footer_center %}
+          {{ page.footer_center }}
+        {% endif %}
       </div>
-    {% endif %}
-    {% if page.footer_copy %}
-    <div class="main-footer__copy mb-2 mb-lg-4">
-      {{ page.footer_copy}}
+      <div class="main-footer__right col-lg-4 d-flex flex-column justify-content-center mb-2 mb-lg-0">
+        {% if page.footer_right %}
+          {{ page.footer_right }}
+        {% endif %}
+      </div>
     </div>
-  {% endif %}
+  </div>
+  <div class="main-footer__footnote mb-2">
+    <span>©2024. Todos los derechos reservados. Diseño y desarrollo por Depura Creatividad</span>
   </div>
 </footer>
-<div class="row g-0">
-    <span class="col-5 bg-orange pb-2"></span>
-    <span class="col-5 bg-blue pb-2"></span>
-    <span class="col-2 bg-blue-lt pb-2"></span>
-  </div>
 {% endif %}
+<div class="row g-0">
+    <span class="col-2 bg-green-lt pb-2"></span>
+    <span class="col-5 bg-orange pb-2"></span>
+    <span class="col-5 bg-brown pb-2"></span>
+</div>

@@ -1,7 +1,7 @@
 .main-header {
+  @include width(100%);
   position: fixed;
   top: 0;
-  @include width(100%);
   z-index: 8888;
 
   .dropdown-item.active,
@@ -12,10 +12,18 @@
   }
 
   &__nav{
+    padding: 0 !important;
+
     @include from(xl){
-      margin: 0 space(2);
+      margin: 0 space(1);
     }
   }
+
+  .nav-link, .dropdown-item {
+    font-weight: bold;
+    color: $orange
+  }
+
   &-mb{
     display: flex;
     justify-content: space-between;
@@ -30,8 +38,9 @@
         padding: 0;
         .site-logo{
           img{
-            flex:1 0 rem(100px);
+            flex:1 0 rem(120px);
             margin:0;
+            height: rem(80px);
           }
         }
       }
@@ -49,6 +58,11 @@
     top:7vh;
     width: rem(250px);
     z-index: 3000;
+
+    .nav-level-0 {
+      justify-content: center !important;
+    }
+
     @include from(l){
       padding: 0;
       position: relative;
@@ -70,7 +84,7 @@
         }
         li{
           .nav-link{
-            color:$green;
+            color:$orange;
           }
           @include from(l){
             margin:0 auto;
@@ -80,20 +94,21 @@
     }
     margin: 0;
     .nav-item{
-      color: $green;
+      color: $orange;
       font-size: rem(17.5px);
+      margin: 0 space(.5) !important;
       @include from(xl){
         font-size: rem(18.5px);
       }
       a {
         &:hover{
-          color: $green;
+          color: $orange;
         }
       }
     }
     .dropdown{
       &>a{
-      color: $green !important;
+        color: $orange !important;
       }
       ul{
         background-color: $alabaster;
@@ -107,11 +122,18 @@
     }
   }
   &__whatsapp2{
-    margin:rem(20px) 0;
+    margin: rem(20px) 0 !important;
+
+
     @include from(l){
       display: none !important;
     }
-    a{
+
+    .navbar-nav {
+      background-color: transparent;
+    }
+
+    .nav-link {
       color: $white !important;
     }
   }
@@ -121,6 +143,10 @@
   }
 }
 
+.menu--whatsapp {
+  background-color: transparent;
+}
+
 .navbar-nav .nav-link.active:not(.root){
-  color: $green;
+  color: $orange;
 }

@@ -41,3 +41,25 @@ input[type="file"] {
     outline: none;
   }
 }
+
+
+//Files de drupal
+.js-form-file.form-file.glb-form-element {
+  border: none !important;
+  box-shadow: 0 0 !important;
+  padding: 0 !important;
+
+  &::before {
+    background-color: $green !important;
+    border-radius: rem(9px) !important;
+    color: $white !important;
+    max-width: rem(350px);
+  }
+
+  &:hover, &:active, &:focus {
+    &::before {
+      background-color: $green-lt !important;
+      color: $white !important;
+    }
+  }
+}

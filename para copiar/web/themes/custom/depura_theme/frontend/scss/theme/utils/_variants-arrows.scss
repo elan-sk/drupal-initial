@@ -36,12 +36,6 @@
   }
 }
 
-*[class*="bg-blue"] {
-  .carousel-arrows__arrow{
-    filter: drop-shadow(rem(1.5px) rem(2.5px) 0 $blue);
-  }
-}
-
 *[class*="bg-brown"] {
   .carousel-arrows__arrow{
     filter: drop-shadow(rem(1.5px) rem(2.5px) 0 $brown);
