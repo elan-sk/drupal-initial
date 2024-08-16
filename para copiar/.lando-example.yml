@@ -1,7 +1,7 @@
 name: nombre_proyecto
 recipe: drupal10
 config:
-  webroot: web
+  webroot: .
   php: 8.1
   composer_version: 2-latest
   via: apache
