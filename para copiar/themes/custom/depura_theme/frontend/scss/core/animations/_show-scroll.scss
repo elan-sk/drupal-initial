@@ -1,0 +1,47 @@
+@keyframes show-scroll {
+  from {
+    opacity: 0;
+    position: relative;
+    top: 100px;
+  }
+  to {
+    opacity: 1;
+    position: relative;
+    top: 0;
+  }
+}
+
+@keyframes parallax-content {
+  from {
+    position: relative;
+    top: 100px;
+  }
+  to {
+    position: relative;
+    top: -10px;
+  }
+}
+
+.reset-transition, %reset-transition {
+  animation-name: none !important;
+}
+
+.transition-scroll, %transition-scroll{
+  & > * {
+    animation-fill-mode: both;
+    animation-name: show-scroll;
+    animation-range: entry 0% cover 30%;
+    animation-timeline: --section;
+    view-timeline-axis: block;
+    view-timeline-name: --section;
+  }
+}
+
+.transition-parallax-content, %transition-parallax-content{
+  animation-fill-mode: both;
+  animation-name: parallax-content;
+  animation-range: entry 0% cover 50%;
+  animation-timeline: --section;
+  view-timeline-axis: block;
+  view-timeline-name: --section;
+}

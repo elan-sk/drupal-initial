@@ -1,0 +1,13 @@
+//Transition Salida
+::view-transition-old(exit),
+::view-transition-new(exit){
+  animation-duration: .5s;
+}
+
+::view-transition-old(exit){
+  animation-name: fadeOutScale;
+}
+
+::view-transition-new(exit){
+  animation-name: fadeIn;
+}

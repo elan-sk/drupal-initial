@@ -1,0 +1,37 @@
+// Colors
+$alabaster: #F8F5F0;
+$white: #ffffff;
+$green: #0B6546;
+$green-lt: #8ECD0F;
+$black: #000000;
+$blue-lt: #99C8FB;
+$brown: #6B451E;
+$orange: #EC733A;
+
+//Nombre de colores para variantes
+$variant-color: (
+  "alabaster":$alabaster,
+  "white":$white,
+  "green":$green,
+  "green-lt":$green-lt,
+  "black":$black,
+  "blue-lt":$blue-lt,
+  "brown":$brown,
+  "orange":$orange,
+  "clean":transparent,
+);
+
+// Fonts
+$font-primary: "Red Hat Display", sans-serif;
+
+// header utils
+$header_height_m: rem(84px);
+$header_height_l: rem(86px);
+
+// corner
+$corner-s: rem(20px);
+$corner-m: rem(30px);
+$corner-l: rem(60px);
+
+
+

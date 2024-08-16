@@ -1,0 +1,66 @@
+body {
+  %button-primary, .button-primary {
+    @extend %button-text;
+    background-color: $orange;
+    border: 2px solid $orange;
+    border-radius: rem(50px);
+    color: $white;
+    display: block;
+    padding: rem(12px) rem(50px);
+    transition: all .32s ease-in-out;
+    @include from(m) {
+      display: inline-block;
+    }
+    &:hover, &:active, &:focus {
+      background-color: $blue-lt;
+      border-color: $blue-lt;
+      color: $white;
+    }
+  }
+
+  %button-secondary, .button-secondary {
+    @extend %button-primary;
+    background-color: $green-lt;
+    border-color: $green-lt;
+  }
+
+  %button-tertiary, .button-tertiary {
+    @extend %button-text;
+    color: $green;
+
+    &:hover, &:active, &:focus {
+      color: $green-lt;
+    }
+
+    &::after {
+      content: ' >>';
+      display: inline;
+    }
+  }
+
+  %button-header, .button-header {
+    @extend %button-primary;
+    align-items: center;
+    border-color: $green-lt;
+    display: flex;
+    margin: 0 space(.5);
+    padding: rem(3px) space(1);
+
+    &:hover, &:active, &:focus {
+      background-color: $orange;
+      border-color: $orange;
+    }
+    a{
+      background-color: transparent !important;
+      color: $white !important;
+      font-size: rem(17px);
+      font-weight: 600;
+      @include from(xl){
+        font-size: rem(18.5px);
+      }
+    }
+    span{
+      @include imageBg('../img/icons/whatsapp.png', rem(25px), rem(25px));
+    }
+  }
+}

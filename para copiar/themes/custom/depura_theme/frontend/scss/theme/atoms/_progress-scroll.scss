@@ -1,0 +1,6 @@
+.progress-scroll {
+  &__bar {
+    transition: all .32s ease-in-out;
+    width: 0;
+  }
+}

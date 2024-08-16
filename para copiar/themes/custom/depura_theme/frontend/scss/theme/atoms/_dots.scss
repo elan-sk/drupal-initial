@@ -1,0 +1,30 @@
+.carousel-dots {
+  .slick-dots {
+    left: 0;
+    padding: rem(15px) 0 0;
+    text-align: center;
+    li {
+      bottom: rem(-30px);
+      display: inline-block;
+      button {
+        background-color: rgba($green, 0.4);
+        border: none;
+        border-radius: 50%;
+        font-size: 0;
+        height: 12px;
+        margin: 0;
+        width: 12px;
+
+        &::before {
+          content: "";
+        }
+      }
+
+      &.slick-active {
+        button {
+          background-color: $green;
+        }
+      }
+    }
+  }
+}

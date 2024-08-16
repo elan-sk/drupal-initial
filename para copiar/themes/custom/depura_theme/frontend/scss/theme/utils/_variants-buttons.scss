@@ -1,0 +1,41 @@
+*[class*="bg-orange"]:not(.root) {
+  .button-primary {
+    border: 2px solid $white;
+  }
+  .button-secondary{
+    &:hover {
+      color: $brown;
+    }
+  }
+  .button-link{
+    &:hover, &:active, &:focus {
+      color: $brown;
+    }
+  }
+}
+
+*[class*="bg-green"]:not(.root) {
+  .button-header {
+    &:hover {
+      border: 2px solid $white;
+    }
+  }
+}
+
+*[class*="bg-green-lt"]:not(.root) {
+  .button-primary {
+    &:hover {
+      border: 2px solid $white;
+    }
+  }
+
+  .button-primary--vr {
+    &:hover, &:active, &:focus {
+      border: 2px solid $white;
+    }
+  }
+
+  .button-header {
+    border: 2px solid $white;
+  }
+}

@@ -1,0 +1,8 @@
+//variantes de Color de Fondo
+@include variant("bg", background-color, $variant-color);
+
+//Variantes de Color de Bordes
+@include variant("br", border-color, $variant-color);
+
+//variantes Color de texto
+@include variant-all("co", color, $variant-color);

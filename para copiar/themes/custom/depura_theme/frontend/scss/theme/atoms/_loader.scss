@@ -1,0 +1,44 @@
+.loader {
+  @include square(100%);
+  $self: &;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  background-color: rgba($white, 0.8);
+  display: none;
+  flex-direction: column;
+  gap: space(.75);
+  justify-content: center;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  transition: all 0.3s ease-in;
+  z-index: 9999;
+
+  &-active {
+    overflow: hidden;
+    padding-right: rem(15px);
+  }
+
+  &__icon {
+      @include circle(rem(125px));
+  }
+
+  &__img {
+    @include square(100%);
+    background-image: none;
+  }
+
+  &__text {
+    @extend %h4;
+  }
+
+  &.active{
+    display: flex;
+
+    #{$self}__img {
+      @include imageBg('../img/loading.gif');
+    }
+  }
+}
+

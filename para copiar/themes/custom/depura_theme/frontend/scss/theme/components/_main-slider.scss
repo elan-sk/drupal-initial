@@ -1,0 +1,61 @@
+.main-slider {
+  background-color: transparent;
+  margin-bottom: rem(-30px);
+
+  &__items {
+    margin-bottom: 0 !important;
+  }
+
+  &__carousel-arrows {
+    width: 100%;
+    max-width: rem(150px);
+    margin-left: space(1);
+    top: initial;
+    bottom: rem(90px);
+    padding: 0;
+    z-index: 9997;
+
+    @include from(m){
+      margin-left: space(2);
+      bottom: space(2.3);
+    }
+
+    @include from(l){
+      max-width: rem(180px);
+    }
+  }
+
+  .carousel-arrows{
+    &__prev {
+      @include from(xl){
+        transform: initial;
+      }
+    }
+    &__next {
+      @include from(xl){
+        transform: initial;
+      }
+    }
+    &__arrow {
+      fill: $white;
+      filter: drop-shadow(rem(1.5px) rem(2.5px) 0 $black);
+    }
+  }
+
+  &__carousel-dots {
+    .slick-dots{
+      bottom: space(2.5);
+      li {
+        button {
+          background-color: rgba($white, .4);
+        }
+      }
+
+      li.slick-active{
+        button {
+          background-color: $white;
+        }
+      }
+    }
+  }
+}

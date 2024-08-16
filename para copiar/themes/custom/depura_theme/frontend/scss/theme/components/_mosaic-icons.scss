@@ -1,0 +1,13 @@
+.mosaic-icons {
+  padding-bottom: space(2) ;
+  &__title {
+    @include from(l){
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      & > * {
+        max-width: rem(1000px);
+      }
+    }
+  }
+}
