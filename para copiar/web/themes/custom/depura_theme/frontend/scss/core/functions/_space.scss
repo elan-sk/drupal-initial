@@ -1,4 +1,0 @@
-@function space($unit) {
-  $space: 30px;
-  @return ($unit * $space) / 16px * 1rem;
-}

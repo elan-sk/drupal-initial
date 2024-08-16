@@ -1,9 +1,0 @@
-
-exports.module = {
-  list: [
-
-  ],
-  patterns: [
-
-  ]
-}
