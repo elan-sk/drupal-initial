@@ -18,8 +18,8 @@ Cuando finalice el proceso de instalación se generará una URL local `http://no
 A continuación se listan los permisos para directorios necesarios para futuras actualizaciones de composer
 
 ```
-chmod 0666 web/sites/default/settings.php
-chmod 0777 web/sites/default/files
+chmod 0666 sites/default/settings.php
+chmod 0777 sites/default/files
 ```
 ## Configuración de Base de datos
 
