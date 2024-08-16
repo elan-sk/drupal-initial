@@ -26,33 +26,32 @@
  * @see template_preprocess_block()
  */
 #}
-{% set class_block = 'banner-full-height' %}
+{% set class_block = 'last-project' %}
 
 {%
   set classes = [
     'block',
     'block-' ~ configuration.provider|clean_class,
     'block-' ~ plugin_id|clean_class,
-    'co-white fade-in',
+    'section-padding',
     class_block,
-    ]
+  ]
 %}
+<section{{ attributes.addClass(classes) }}>
+  <div class="container">
+    {{ title_prefix }}
+    {% if label %}
+    <header class="{{class_block}}__title text-center transition-scroll mb-5">
+      <h2{{ title_attributes }} class="co-green">{{ label }}</h2>
+      {% if body %}
+        {{body}}
+      {% endif %}
+    </header>
+    {% endif %}
+  {{ title_suffix }}
 
-{% block content %}
-
-  <section{{ attributes.addClass(classes) }}">
-    {% set image_url = file_url(content.field_image[0]['#media'].field_media_image.entity.uri.value) %}
-    {% set image_alt = content.field_image[0]['#media'].field_media_image.alt %}
-    <figure class="{{class_block}}__image w-100 m-0 position-relative">
-      <img src="{{ image_url }}" alt="{{ image_alt }}" class="w-100"/>
-      <figcaption class="{{class_block}}__title">
-        {{ title_prefix }}
-        {% if label %}
-          <h2 class="h1" {{ title_attributes }}>{{ label }}</h2>
-        {% endif %}
-        {{ title_suffix }}
-      </figcaption>
-    </figure>
-  </section>
-
-{% endblock %}
+  {% block content %}
+    {{ content }}
+  {% endblock %}
+  </div>
+</section>

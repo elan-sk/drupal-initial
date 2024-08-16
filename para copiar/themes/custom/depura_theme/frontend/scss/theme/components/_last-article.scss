@@ -1,0 +1,49 @@
+.last-project, .last-news {
+  padding-bottom: 0 !important;
+
+  .teaser-card {
+    &, &__content {
+      margin-bottom: 0 !important;
+    }
+
+    &__header {
+      margin: 0 !important;
+      * {
+        font-size: rem(23px)
+      }
+    }
+
+    &__link {
+      font-size: rem(18px)
+    }
+  }
+
+  .view-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .views-row {
+    flex: 0 1 100%;
+    padding: 0 space(.5) !important;
+
+    @include from(m) {
+      flex: 0 1 50%;
+    }
+
+    @include from(l) {
+      flex: 0 1 25%;
+    }
+  }
+}
+
+
+.last-project, .last-news  {
+  & + .block-basic {
+    padding-top: space(2) !important;
+    * {
+      animation-name: none;
+    }
+  }
+}

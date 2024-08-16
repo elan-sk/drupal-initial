@@ -1,58 +1,28 @@
 .banner-full{
   $self: &;
+  @include background-cover;
   background-color: transparent;
-  height: rem(200px);
+  height: rem(400px);
   margin:0;
   margin-bottom: rem(-30px);
-  padding-bottom: 80%;
-  position: relative;
   width: 100%;
   z-index: 999;
 
   @include from(s){
-    padding-bottom: 20%;
+    height: rem(450px);
   }
 
-  @include from(l){
-    height: rem(150px);
-  }
 
-  &__image{
-    img{
-      @extend %corner-bottom;
-      height: 100%;
-      left: 0;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      width: 100%;
+  .container {
+    @include from(s) {
+      padding: 0 !important;
     }
   }
+
   &__title{
-    left: space(5);
-    position: absolute;
-    top: 50%;
-    transform: translate(-25%, -50%);
-    @include from(m){
-      left: 30%;
-    }
-    @include from(l){
-      left: 20%;
-      max-width: 40%;
-    }
-  }
-
-  &--heigh {
-    height: auto;
-    padding: 0;
-
-    #{$self}__image{
-      height: auto;
-      margin: 0;
-
-      img{
-        position: initial;
-      }
+    h2{
+      text-wrap: balance;
+      max-width: rem(700px);
     }
   }
 }

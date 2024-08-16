@@ -31,12 +31,12 @@ Description: Renders a slider block with a single multiple field that references
         {% set link_url = item.field_link.uri %}
         {% set link_title = item.field_link.title %}
 
-        <div class="{{class_block}}-card">
+        <div class="{{class_block}}-card corner-bottom padding-header" style="background-image: url({{image_url}})">
           <div class="{{class_block}}-card__wrapper p-0">
-            <div class="{{class_block}}-card__content corner-bottom d-flex justify-content-end flex-column" style="background-image: url({{image_url}})">
-              <h2 class="{{class_block}}-card__title pb-2 pb-sm-5 pb-md-2 mb-5">{{ item.field_title.value }}</h2>
+            <div class="{{class_block}}-card__content corner-bottom d-flex justify-content-center flex-column">
+              <h2 class="{{class_block}}-card__title pb-2 pb-sm-5 pb-md-2 mb-5 text-center text-md-start">{{ item.field_title.value }}</h2>
               {% if link_url %}
-              <div class="d-flex">
+              <div class="d-flex mx-auto mx-md-0">
                 <a href="{{link_url}}" class="{{class_block}}-card__button button-primary">
                 {{link_title}}
                 </a>
@@ -47,7 +47,7 @@ Description: Renders a slider block with a single multiple field that references
         </div>
       {% endfor %}
     </div>
-    <div class="{{class_block}}__carousel-arrows carousel-arrows">
+    <div class="{{class_block}}__carousel-arrows carousel-arrows mx-md-5">
       <span class="js_gn_carousel__prev_arrow carousel-arrows__prev">
         <svg class="carousel-arrows__arrow arrow-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 58 38" fill="none">
           <path d="M54 21.5C55.3807 21.5 56.5 20.3807 56.5 19C56.5 17.6193 55.3807 16.5 54 16.5L54 21.5ZM1.23223 17.2322C0.25592 18.2085 0.25592 19.7915 1.23223 20.7678L17.1421 36.6777C18.1184 37.654 19.7014 37.654 20.6777 36.6777C21.654 35.7014 21.654 34.1184 20.6777 33.1421L6.53553 19L20.6777 4.85787C21.654 3.88156 21.654 2.29864 20.6777 1.32233C19.7014 0.346023 18.1184 0.346023 17.1421 1.32233L1.23223 17.2322ZM54 16.5L3 16.5L3 21.5L54 21.5L54 16.5Z"/>
@@ -62,6 +62,26 @@ Description: Renders a slider block with a single multiple field that references
     <div class="{{class_block}}__carousel-dots carousel-dots js_gn_carousel_controls">
       <div class="posts-carousel__pagination__dots js_gn_carousel__dots"></div>
     </div>
+  </div>
+
+  <div class="{{class_block}}-social-media">
+    <ul class="{{class_block}}-social-media__content-button d-flex p-0">
+      {% for item in content.field_buttons['#items'] %}
+        {% set item = item.entity %}
+        {% set image_url = file_url(item.field_image.entity.field_media_image.entity.uri.value) %}
+        {% set image_alt = item.field_image.entity.field_media_image.alt %}
+        {% set link_url = item.field_link.uri %}
+        <li class="{{class_block}}-social-media__item">
+          {% if link_url %}
+            <a class="{{class_block}}-social-media__link" href="{{link_url}}">
+          {% endif %}
+              <img src="{{image_url}}" alt="{{link_url}}">
+          {% if link_url %}
+            </a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
   </div>
 </section>
 {% endblock %}

@@ -141,6 +141,16 @@
   .site-title {
     display: none;
   }
+
+  &--hidden {
+    position: static;
+  }
+
+
+  &--sticky {
+    margin-top: initial;
+    position: fixed;
+  }
 }
 
 .menu--whatsapp {

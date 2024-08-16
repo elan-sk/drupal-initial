@@ -16,7 +16,7 @@ const OPTIONS = {
   slidesToScroll: 1,
   variableHeight: false,
   infinite:true,
-  fade: true,
+  // fade: true,
   mobileFirst: true,
   responsive: [
     {

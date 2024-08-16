@@ -7,21 +7,24 @@
   pointer-events: none;
   width: 100%;
 
+
   @include from(l) {
     padding: 0 space(.5);
   }
+
   @include from(xl) {
-    padding: 0;}
+    padding: 0 space(.5) !important;
+  }
 
   &__arrow {
-    @include rectangle(rem(30px),rem(20px));
+    @include rectangle(rem(30px), rem(20px));
     cursor: pointer;
     fill: $green;
     filter: drop-shadow(rem(1.5px) rem(2.5px) 0 $white);
     pointer-events: all;
 
     @include from(s){
-      @include rectangle(rem(45px),rem(38px));
+      @include rectangle(rem(45px), rem(38px));
     }
 
     @include from(l) {

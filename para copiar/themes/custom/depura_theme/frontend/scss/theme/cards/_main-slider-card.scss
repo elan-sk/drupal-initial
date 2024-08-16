@@ -1,28 +1,28 @@
 .main-slider-card{
+  @include background-cover;
+
   &__content {
     aspect-ratio: 16/20;
-    background-position: center center;
-    background-size: cover;
     padding: space(.75);
     padding-bottom: space(1);
 
     @include from(m){
-      aspect-ratio: 16/12;
-      padding: space(2);
+      aspect-ratio: 16/10;
+      padding: space(3);
       padding-bottom: space(5.5);
     }
 
     @include from(l){
-      aspect-ratio: 16/7;
+      aspect-ratio: 16/6;
     }
 
     @include from(xl){
       aspect-ratio: initial;
-      min-height: rem(800px);
+      min-height: rem(700px);
     }
   }
   &__title {
-    line-height: 1.5;
-    max-width: rem(1200px);
+    text-wrap: balance;
+    max-width: rem(600px);
   }
 }

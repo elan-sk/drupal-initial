@@ -1,14 +1,15 @@
 .banner-full + section, .main-slider + section, .layout__region--content > *:last-child {
   border-color: transparent;
-  @include variant-self("bg", border-color, $variant-color);
 }
 
 .banner-full + section, .main-slider + section {
+  border-color: transparent;
   border-top-style: solid;
   border-top-width: $corner-m;
 }
 
 .layout__region--content > *:last-child {
+  border-color: transparent;
   border-bottom-style: solid;
   border-bottom-width: $corner-l;
 }

@@ -12,11 +12,6 @@ body {
   direction: ltr;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding-top: $header_height_m;
-
-  @include from(l) {
-    padding-top: $header_height_l !important;
-  }
 }
 
 h1, nav[aria-label="breadcrumb"]{
@@ -34,6 +29,14 @@ h1, nav[aria-label="breadcrumb"]{
   }
   @include from(l) {
     padding: space(3.25) 0 space(3.5);
+  }
+}
+
+%padding-header, .padding-header{
+  padding-top: $header_height_m;
+
+  @include from(l) {
+    padding-top: $header_height_l !important;
   }
 }
 

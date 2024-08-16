@@ -1,7 +1,8 @@
 const CLASSES = {
   animIn: 'slide-down',
   animOut: 'slide-up',
-  activeMenu: 'main-menu--sticky'
+  activeMenu: 'main-header--sticky',
+  hiddenMenu: 'main-header--hidden'
 }
 
 const SELECTORS = {
@@ -30,10 +31,11 @@ class Navbar {
 
   handleScroll () {
     this.offset = window.scrollY
+    this.context.classList.remove(CLASSES.hiddenMenu)
 
     if (this.offset > this.bannerHeight) {
-      // Menu out of view
       if (this.offset >= this.refoffset) {
+        this.context.classList.add(CLASSES.hiddenMenu)
         this.context.classList.remove(CLASSES.animIn)
         this.context.classList.remove(CLASSES.activeMenu)
         this.context.classList.add(CLASSES.animOut)
@@ -54,20 +56,3 @@ if (menuInstance) {
   const mainMenu = new Navbar(menuInstance)
   mainMenu.init()
 }
-
-$(document).click(function(e) {
-  if (!$(e.target).closest('#navbarSupportedContent').length) {
-    $('#navbarSupportedContent').collapse('hide');
-  }
-});
-$(document).ready(function() {
-  $('a').each(function() {
-    const currentHostname = location.hostname;
-    const linkHostname = this.hostname;
-    if (currentHostname !== linkHostname) {
-      $(this).attr('target', '_blank');
-    } else {
-      $(this).removeAttr('target');
-    }
-  });
-});

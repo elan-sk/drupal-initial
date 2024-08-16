@@ -38,6 +38,10 @@
   ]
 %}
 
+{% set link_text = content.field_link[0]['#title'] %}
+{% set link_url = content.field_link[0]['#url'] %}
+{% set additional_link = content.field_additional_link[0]['#url'] %}
+{% set additional_link_text = content.field_additional_link[0]['#title'] %}
 {% set color_variation = content.field_color_variation['#items'].value %}
 
 {% if color_variation %}
@@ -57,6 +61,22 @@
     {% block content %}
       <div class="{{class_block}}__wrapper text-center w-100">
         {{ content.body }}
+      </div>
+      <div class="{{class_block}}__content-links d-flex justify-content-center">
+        {% if link_url %}
+          <div class="{{class_block}}__link me-3 mb-3">
+            <a class="button-primary" href="{{ link_url }}" target="{{'pdf' in link_url|render|trim ? '_blank' : '_self'}}">{{ link_text }}
+            </a>
+          </div>
+        {% endif %}
+        {% if additional_link %}
+          <div class="{{class_block}}__link">
+            <a class="button-secondary" href="{{ additional_link }}"
+              target="{{'pdf' in additional_link|render|trim ? '_blank' : '_self'}}">
+              {{ additional_link_text }}
+            </a>
+          </div>
+        {% endif %}
       </div>
     {% endblock %}
   </div>
