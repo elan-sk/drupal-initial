@@ -45,6 +45,7 @@
         "drupal/layout_builder_modal": "^1.2",
         "drupal/layout_builder_restrictions": "^2.8",
         "drupal/layout_library": "^1.0@beta",
+        "drupal/lazy": "^4.0",
         "drupal/mailsystem": "^4.4",
         "drupal/menu_item_extras": "^3.0",
         "drupal/metatag": "^2.0",
@@ -78,7 +79,8 @@
             "drupal/core-project-message": true,
             "phpstan/extension-installer": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
-            "php-http/discovery": true
+            "php-http/discovery": true,
+            "drupal/core-vendor-hardening": true
         },
         "sort-packages": true
     },
