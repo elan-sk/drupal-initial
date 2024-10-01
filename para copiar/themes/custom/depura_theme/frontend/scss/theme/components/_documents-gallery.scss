@@ -1,18 +1,7 @@
 .documents-gallery {
-  padding: space(1.5) 0 space(1) 0;
-
   &-card__title {
     h3{
-      font-size: rem(25px) !important;
       text-wrap: wrap;
-    }
-  }
-
-  &__cta {
-    &, * {
-      color: $green;
-      font-size: rem(17px);
-      font-weight: 600;
     }
   }
 }

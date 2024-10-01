@@ -1,0 +1,14 @@
+body.modal-open {
+  *{
+    animation-name: none !important;
+  }
+  .main-header {
+    &, * {
+      position: static !important;
+      z-index: 0 !important;
+    }
+  }
+}
+html:has(.modal-open) {
+  overflow: hidden !important;
+}

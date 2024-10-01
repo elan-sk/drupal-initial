@@ -1,0 +1,211 @@
+{#
+/**
+* @file
+* Theme override to display a block.
+*
+* Available variables:
+* - plugin_id: The ID of the block implementation.
+* - label: The configured label of the block if visible.
+* - configuration: A list of the block's configuration values.
+* - label: The configured label for the block.
+* - label_display: The display settings for the label.
+* - provider: The module or other provider that provided this block plugin.
+* - Block plugin specific settings will also be stored here.
+* - in_preview: Whether the plugin is being rendered in preview mode.
+* - content: The content of this block.
+* - attributes: array of HTML attributes populated by modules, intended to
+* be added to the main container tag of this template.
+* - id: A valid HTML ID and guaranteed unique.
+* - title_attributes: Same as attributes, except applied to the main title
+* tag that appears in the template.
+* - title_prefix: Additional output populated by modules, intended to be
+* displayed in front of the main title tag that appears in the template.
+* - title_suffix: Additional output populated by modules, intended to be
+* displayed after the main title tag that appears in the template.
+*
+* @see template_preprocess_block()
+*/
+#}
+{% set class_block = 'slider-cards' %}
+
+{%
+set classes = [
+'block',
+'block-' ~ configuration.provider|clean_class,
+'block-' ~ plugin_id|clean_class,
+'section-padding',
+class_block,
+]
+%}
+
+{% block content %}
+{% set body = content.body[0] %}
+{% set field_icon_cards = content.field_icon_cards %}
+{% set color_variation = content.field_color_variation['#items'].value %}
+{% set block_id = class_block ~ '-' ~ configuration.block_id %}
+{% set card_items = content.field_slider_items['#items'] %}
+
+{% if color_variation %}
+  {% set class_variation = class_block ~ "--bg-" ~ color_variation %}
+  {% if color_variation != 'white' and color_variation != 'gray' and color_variation != 'clean' %}
+    {% set class_variation = class_variation ~ " co-white" %}
+  {% endif %}
+{% endif %}
+
+
+<section{{ attributes.addClass(classes, class_variation) }}>
+  <div class="container">
+    {{ title_prefix }}
+      {% if label %}
+      <header class="{{class_block}}__header d-flex flex-column ealign-items-center mb-3 mb-lg-5">
+        <h2 class="{{class_block}}__title text-center mb-3" {{ title_attributes }}>{{ label }}</h2>
+        <div class="{{class_block}}__body text-center">
+          {% if body %}
+            {{body}}
+          {% endif %}
+        </div>
+      </header>
+      {% endif %}
+    {{ title_suffix }}
+  </div>
+
+  <div class="position-relative container-xxl">
+    <div class="{{class_block}}__items js-{{class_block}} container">
+      {% if card_items %}
+        {% for key, item in card_items %}
+          {% set card_item = item.entity %}
+          {% set image_url = file_url(card_item.field_image.entity.field_media_image.entity.uri.value) %}
+          {% set image_alt = card_item.field_image.entity.field_media_image.alt %}
+          {% set card_title = card_item.field_title.value %}
+          {% set card_subtitle = card_item.field_subtitle.value %}
+          {% set card_body = card_item.field_body.value %}
+          {% set card_numbers_phone = card_item.field_numbers_phone %}
+          {% set card_link_text = card_item.field_link.title %}
+          {% set card_link_url = card_item.field_link.uri %}
+          {% set card_images_gallery = card_item.field_images %}
+          {% set button_text = "Ver el proyecto" %}
+
+          {% set card_id = block_id ~ '-' ~ key %}
+          {% set class_card = 'card-project' %}
+          <div class="card mb-5 px-4 {{class_card}} {{cards_row}}">
+            <article class="card__wrapper {{class_card}}__wrapper">
+              {% if image_url %}
+                <figure class="card__image {{class_card}}__image">
+                  <img src="{{image_url}}" alt="{{image_alt}}" class="w-100"/>
+                </figure>
+              {% endif %}
+              {% if card_title %}
+                <header class="card__title {{class_card}}__title mb-0 mx-3">
+                  <h3>{{ card_title }}</h3>
+                </header>
+              {% endif %}
+              {% if card_subtitle %}
+                <h4 class="{{class_card}}__subtitle mb-3 mx-3">
+                   {{ card_subtitle }}
+                </h4>
+              {% endif %}
+              {% if card_body %}
+                <div class="card__body {{class_card}}__body m-0 mb-1 mx-3">
+                    {{card_body  | raw }}
+                </div>
+              {% endif %}
+              <div class="mx-4">
+                {% if card_numbers_phone %}
+                  <div class="row">
+                    {% for key, card_number_phone in card_numbers_phone %}
+                      {% set number = card_number_phone.value %}
+                      <div class="{{class_card}}__number_phone col-lg-6 p-0">
+                        <a class="button-secondary" href="https://wa.me/+57{{number|replace({' ': ''})}}" class="button-secondary">{{number}}</a>
+                      </div>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+                {% if card_link_url %}
+                  <div class="{{class_card}}__link mb-3">
+                    <a class="button-primary w-100 justify-content-center" href="{{ card_link_url }}" target="{{'pdf' in card_link_url|render|trim ? '_blank' : '_self'}}">
+                      {{ card_link_text }}
+                    </a>
+                  </div>
+                {% endif %}
+                {% if card_images_gallery|length %}
+                  <div class="{{class_card}}__link mb-3">
+                    <button class="button-primary w-100 justify-content-center" data-bs-toggle="modal" data-bs-target="#{{card_id}}">
+                      {{button_text}}
+                    </button>
+                  </div>
+                {% endif %}
+              </div>
+            </article>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+    <div class="{{class_block}}__carousel-arrows carousel-arrows">
+      <span class="js_gn_carousel__prev_arrow carousel-arrows__prev">
+        <svg class="carousel-arrows__arrow arrow-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 58 38" fill="none">
+          <path d="M54 21.5C55.3807 21.5 56.5 20.3807 56.5 19C56.5 17.6193 55.3807 16.5 54 16.5L54 21.5ZM1.23223 17.2322C0.25592 18.2085 0.25592 19.7915 1.23223 20.7678L17.1421 36.6777C18.1184 37.654 19.7014 37.654 20.6777 36.6777C21.654 35.7014 21.654 34.1184 20.6777 33.1421L6.53553 19L20.6777 4.85787C21.654 3.88156 21.654 2.29864 20.6777 1.32233C19.7014 0.346023 18.1184 0.346023 17.1421 1.32233L1.23223 17.2322ZM54 16.5L3 16.5L3 21.5L54 21.5L54 16.5Z"/>
+        </svg>
+      </span>
+      <span class="js_gn_carousel__next_arrow carousel-arrows__next">
+        <svg class="carousel-arrows__arrow arrow-right" viewBox="0 0 58 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path id="Vector 1" d="M3 16.5C1.61929 16.5 0.5 17.6193 0.5 19C0.5 20.3807 1.61929 21.5 3 21.5V16.5ZM57.2678 20.7678C58.2441 19.7915 58.2441 18.2085 57.2678 17.2322L41.3579 1.32233C40.3816 0.34602 38.7986 0.34602 37.8223 1.32233C36.846 2.29864 36.846 3.88155 37.8223 4.85786L51.9645 19L37.8223 33.1421C36.846 34.1184 36.846 35.7014 37.8223 36.6777C38.7986 37.654 40.3816 37.654 41.3579 36.6777L57.2678 20.7678ZM3 21.5H55.5V16.5H3V21.5Z"/>
+          </svg>
+      </span>
+    </div>
+    <div class="{{class_block}}__carousel-dots carousel-dots js_gn_carousel_controls">
+      <div class="posts-carousel__pagination__dots js_gn_carousel__dots"></div>
+    </div>
+  </div>
+
+  <div class="{{class_block}}__content-modals">
+    {% set class_modal = 'modal-images' %}
+
+    {% if card_items %}
+    {% for key, item in card_items %}
+      {% set card_item = item.entity %}
+      {% set card_title = card_item.field_title.value %}
+      {% set card_images_gallery = card_item.field_images %}
+      {% set card_id = block_id ~ '-' ~ key %}
+
+      <div class="{{class_modal}} modal fade" id="{{card_id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="{{card_id}}Label" aria-hidden="true">
+        <div class="{{class_modal}}__dialog modal-dialog modal-dialog-centered m-0">
+          <div class="{{class_modal}}__content modal-content container pt-0 px-4 pb-4 d-flex flex-column position-relative">
+            <div class="{{class_modal}}__header modal-header px-0">
+              <h5 class="{{class_modal}}__title modal-title h2" id="{{card_id}}Label">{{card_title}}</h5>
+              <button type="{{class_modal}}__close button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="{{class_modal}}__body js-{{class_modal}} modal-body co-black-dk w-100 p-0">
+              <div class="{{class_modal}}__wrapper d-flex">
+                {% if card_images_gallery %}
+                  {% for key, image in card_images_gallery %}
+                    {% set image_url = file_url(image.entity.field_media_image.entity.uri.value) %}
+                    {% set image_alt = image.entity.field_media_image.alt %}
+                    {% if image_url %}
+                      <figure class="{{class_modal}}__image m-0">
+                        <img class="w-100" src="{{ image_url }}" alt="{{ image_alt }}">
+                      </figure>
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+              </div>
+              <div class="{{class_modal}}__carousel-arrows carousel-arrows">
+                <span class="js_gn_carousel__prev_arrow carousel-arrows__prev">
+                  <svg class="carousel-arrows__arrow arrow-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 58 38" fill="none">
+                    <path d="M54 21.5C55.3807 21.5 56.5 20.3807 56.5 19C56.5 17.6193 55.3807 16.5 54 16.5L54 21.5ZM1.23223 17.2322C0.25592 18.2085 0.25592 19.7915 1.23223 20.7678L17.1421 36.6777C18.1184 37.654 19.7014 37.654 20.6777 36.6777C21.654 35.7014 21.654 34.1184 20.6777 33.1421L6.53553 19L20.6777 4.85787C21.654 3.88156 21.654 2.29864 20.6777 1.32233C19.7014 0.346023 18.1184 0.346023 17.1421 1.32233L1.23223 17.2322ZM54 16.5L3 16.5L3 21.5L54 21.5L54 16.5Z"/>
+                  </svg>
+                </span>
+                <span class="js_gn_carousel__next_arrow carousel-arrows__next">
+                  <svg class="carousel-arrows__arrow arrow-right" viewBox="0 0 58 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path id="Vector 1" d="M3 16.5C1.61929 16.5 0.5 17.6193 0.5 19C0.5 20.3807 1.61929 21.5 3 21.5V16.5ZM57.2678 20.7678C58.2441 19.7915 58.2441 18.2085 57.2678 17.2322L41.3579 1.32233C40.3816 0.34602 38.7986 0.34602 37.8223 1.32233C36.846 2.29864 36.846 3.88155 37.8223 4.85786L51.9645 19L37.8223 33.1421C36.846 34.1184 36.846 35.7014 37.8223 36.6777C38.7986 37.654 40.3816 37.654 41.3579 36.6777L57.2678 20.7678ZM3 21.5H55.5V16.5H3V21.5Z"/>
+                    </svg>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  {% endif %}
+  </div>
+</section>
+{% endblock %}

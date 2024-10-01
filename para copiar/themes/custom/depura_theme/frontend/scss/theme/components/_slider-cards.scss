@@ -1,0 +1,34 @@
+.slider-cards {
+  &__body  {
+    & > * {
+      max-width: rem(1000px);
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+  .field__label {
+    display: none;
+  }
+
+  .carousel-arrows {
+    top: rem(180px);
+
+    @include from(s) {
+      top: rem(200px);
+    }
+
+    @include from(l) {
+      top: rem(240px);
+
+    }
+  }
+
+  .card-project {
+    &__body {
+      min-height: rem(100px);
+      height: auto !important;
+      max-height: auto !important;
+    }
+  }
+}
+

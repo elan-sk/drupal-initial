@@ -14,3 +14,27 @@
     @content;
   }
 }
+
+@mixin between($bp-min, $bp-max) {
+  $bp-min-value: map-get($breakpoints-min, $bp-min);
+  $bp-max-value: map-get($breakpoints-max, $bp-max);
+
+  @media only screen and (min-width: $bp-min-value) and (max-width: $bp-max-value) {
+    @content;
+  }
+}
+
+@mixin only($bp) {
+  $bp-min-value: map-get($breakpoints-min, $bp);
+  $bp-max-value: map-get($breakpoints-max, $bp);
+
+  @media only screen and (min-width: $bp-min-value) and (max-width: $bp-max-value) {
+    @content;
+  }
+}
+
+@mixin reduce-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}

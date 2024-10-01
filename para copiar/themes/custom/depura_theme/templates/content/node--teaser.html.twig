@@ -76,7 +76,7 @@
     node.isSticky() ? 'node--sticky',
     not node.isPublished() ? 'node--unpublished',
     view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
-    class_block, 'transition-scroll mb-4 px-sm-3 px-lg-0 pe-lg-3',
+    class_block, 'transition-scroll mb-5 px-sm-3 px-lg-0 pe-lg-3',
   ]
 %}
 
@@ -87,13 +87,17 @@
   {% set image_alt =
   content.field_featured_image[0]['#entity'].field_media_image.alt %}
   <div{{ content_attributes.addClass('node__content') }}>
-    <figure class="{{class_block}}__image corner-m p-0">
+    <figure class="{{class_block}}__image p-0">
       {% if image_url %}
       <a href="{{ url }}" rel="bookmark">
         <img src="{{ image_url }}" alt="{{ image_alt }}"
           class="{{class_block}}__image-source">
       </a>
       <div class="{{class_block}}__content-type">
+        {% if node.field_article_type %}
+          {% set type_name = node.field_article_type.entity.name.value %}
+          {% set type_id = node.field_article_type.entity.tid.value %}
+        {% endif %}
         {% if node.field_project_type %}
           {% set type_name = node.field_project_type.entity.name.value %}
           {% set type_id = node.field_project_type.entity.tid.value %}
@@ -128,7 +132,7 @@
       </header>
       {% endif %}
       {{ title_suffix }}
-      <a class="{{class_block}}__link button-text co-green" href="{{url}}" rel="bookmark">{{'Leer Más >>'|t}}</a>
+      <a class="{{class_block}}__link button-text co-cyan" href="{{url}}" rel="bookmark">{{'Leer Más >>'|t}}</a>
     </div>
   </div>
 </article>

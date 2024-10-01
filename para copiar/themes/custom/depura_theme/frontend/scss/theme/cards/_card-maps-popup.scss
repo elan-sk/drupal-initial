@@ -1,0 +1,23 @@
+.card-maps-popup {
+  min-width: max-content;
+
+  &__image {
+    @include fluid-aspect(16 10, 'img');
+    margin-bottom: space(.25);
+    width: rem(200px);
+  }
+
+  &__header {
+    h5 {
+      margin: 0 !important;
+      width: rem(200px);
+    }
+  }
+
+  &__text {
+    & > * {
+      margin: 0 !important;
+    }
+  }
+  
+}

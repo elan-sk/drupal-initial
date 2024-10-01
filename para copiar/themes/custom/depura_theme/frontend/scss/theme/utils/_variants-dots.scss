@@ -13,15 +13,15 @@
   }
 }
 
-*[class*="bg-alabaster"], *[class*="bg-white"], *[class*="bg-clean"]{
+*[class*="bg-white"], *[class*="bg-gray"], *[class*="bg-clean"]{
   .carousel-dots{
     .slick-dots {
       button{
-        background-color: rgba($green, 0.4);
+        background-color: rgba($black-dk, 0.4);
       }
       .slick-active {
         button {
-          background-color: $green;
+          background-color: $black-dk
         }
       }
     }

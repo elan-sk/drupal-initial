@@ -48,7 +48,7 @@ class_block,
 
 {% if color_variation %}
   {% set class_variation = class_block ~ "--bg-" ~ color_variation %}
-  {% if color_variation != 'white' and color_variation != 'alabaster' and color_variation != 'yellow' and color_variation != 'clean' %}
+  {% if color_variation != 'white' and color_variation != 'gray' and color_variation != 'clean' %}
     {% set class_variation = class_variation ~ " co-white" %}
   {% endif %}
 {% endif %}

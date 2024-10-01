@@ -45,7 +45,7 @@ class_block,
 
 {% if color_variation %}
   {% set class_variation = class_block ~ "--bg-" ~ color_variation %}
-  {% if color_variation != 'white' and color_variation != 'alabaster' and color_variation != 'yellow' and color_variation != 'clean' %}
+  {% if color_variation != 'white' and color_variation != 'gray' and color_variation != 'clean' %}
     {% set class_variation = class_variation ~ " co-white" %}
   {% endif %}
 {% endif %}
@@ -71,7 +71,7 @@ class_block,
           {% set document_url = file_url(card_item.field_document.entity.field_media_document.entity.uri.value) %}
           {% set document_text = 'Ver Documento >>' %}
 
-          <div class="card mt-5 mb-0 {{class_block}}-card col-sm-6 col-md-4  col-lg-3">
+          <div class="card mt-5 mb-0 {{class_block}}-card col-sm-6 col-md-4 col-lg-3">
             <article class="card__wrapper {{class_block}}-card__wrapper">
               {% if image_url %}
               <figure class="card__image {{class_block}}-card__image corner-m">
@@ -84,12 +84,12 @@ class_block,
               </header>
               {% endif %}
               {% if document_url %}
-              <div class="{{class_block}}__cta" >
-                <a href="{{document_url}}" class="button-text" target="_blank" rel="noopener noreferrer">
-                  {{ document_text }}
-                </a>
-              </div>
-            {% endif %}
+                <div class="{{class_block}}__cta" >
+                  <a href="{{document_url}}" class="button-text" target="_blank" rel="noopener noreferrer">
+                    {{ document_text }}
+                  </a>
+                </div>
+             {% endif %}
             </article>
           </div>
         {% endfor %}

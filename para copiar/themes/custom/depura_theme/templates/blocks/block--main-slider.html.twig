@@ -13,7 +13,7 @@ Description: Renders a slider block with a single multiple field that references
     'block',
     'block-' ~ configuration.provider|clean_class,
     'block-' ~ plugin_id|clean_class,
-    'co-white fade-in position-relative',
+    'bg-white position-relative',
     class_block,
   ]
 %}
@@ -28,20 +28,50 @@ Description: Renders a slider block with a single multiple field that references
       {% for item in content.field_slider_items['#items'] %}
         {% set item = item.entity %}
         {% set image_url = file_url(item.field_image.entity.field_media_image.entity.uri.value) %}
+        {% set image_alt = item.field_image.entity.field_media_image.alt %}
+        {% set image_icon_url = file_url(item.field_image_icon.entity.field_media_image.entity.uri.value) %}
+        {% set image_icon_alt = item.field_image_icon.entity.field_media_image.alt %}
+        {% set title = item.field_title.value %}
+        {% set body = item.field_body.value %}
         {% set link_url = item.field_link.uri %}
         {% set link_title = item.field_link.title %}
 
-        <div class="{{class_block}}-card corner-bottom padding-header" style="background-image: url({{image_url}})">
+        <div class="{{class_block}}-card padding-header">
           <div class="{{class_block}}-card__wrapper p-0">
-            <div class="{{class_block}}-card__content corner-bottom d-flex justify-content-center flex-column">
-              <h2 class="{{class_block}}-card__title pb-2 pb-sm-5 pb-md-2 mb-5 text-center text-md-start">{{ item.field_title.value }}</h2>
-              {% if link_url %}
-              <div class="d-flex mx-auto mx-md-0">
-                <a href="{{link_url}}" class="{{class_block}}-card__button button-primary">
-                {{link_title}}
-                </a>
+            <div class="row">
+              <div class="{{class_block}}-card__content col-lg-6 d-flex flex-column">
+                <div class="{{class_block}}-card__text p-3 pt-5 d-flex flex-column mb-5 pb-3 pe-lg-5">
+                  {% if image_icon_url %}
+                    <figure class="{{class_block}}-card__image-icon m-0 mb-3">
+                      <img src="{{ image_icon_url }}" alt="{{ image_icon_alt }}">
+                    </figure>
+                  {% endif %}
+                  {% if title %}
+                    <h2 class="{{class_block}}-card__title mb-3">
+                        {{ title }}
+                    </h2>
+                  {% endif %}
+                  {% if body %}
+                    <div class="{{class_block}}-card__body mb-5">
+                      {{ body|raw }}
+                    </div>
+                  {% endif %}
+                  {% if link_url %}
+                    <div class="{{class_block}}-card__cta d-flex my-3 mx-auto mx-md-0">
+                      <a href="{{link_url}}" class="{{class_block}}-card__button button-primary">
+                      {{link_title}}
+                      </a>
+                    </div>
+                  {% endif %}
+                </div>
               </div>
+              <div class="{{class_block}}-card__image-content col-lg-6 p-0">
+                {% if image_url %}
+                <figure class="{{class_block}}-card__image m-0">
+                  <img class="w-100" src="{{ image_url }}" alt="{{ image_alt }}">
+                </figure>
               {% endif %}
+              </div>
             </div>
           </div>
         </div>
@@ -62,26 +92,6 @@ Description: Renders a slider block with a single multiple field that references
     <div class="{{class_block}}__carousel-dots carousel-dots js_gn_carousel_controls">
       <div class="posts-carousel__pagination__dots js_gn_carousel__dots"></div>
     </div>
-  </div>
-
-  <div class="{{class_block}}-social-media">
-    <ul class="{{class_block}}-social-media__content-button d-flex p-0">
-      {% for item in content.field_buttons['#items'] %}
-        {% set item = item.entity %}
-        {% set image_url = file_url(item.field_image.entity.field_media_image.entity.uri.value) %}
-        {% set image_alt = item.field_image.entity.field_media_image.alt %}
-        {% set link_url = item.field_link.uri %}
-        <li class="{{class_block}}-social-media__item">
-          {% if link_url %}
-            <a class="{{class_block}}-social-media__link" href="{{link_url}}">
-          {% endif %}
-              <img src="{{image_url}}" alt="{{link_url}}">
-          {% if link_url %}
-            </a>
-          {% endif %}
-        </li>
-      {% endfor %}
-    </ul>
   </div>
 </section>
 {% endblock %}

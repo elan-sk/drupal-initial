@@ -100,7 +100,7 @@
             {% set image_url = file_url(content.field_featured_image[0]['#media'].field_media_image.entity.uri.value) %}
             {% set image_alt = content.field_featured_image[0]['#media'].field_media_image.alt %}
             {% if image_url %}
-            <figure class="{{class_block}}__image corner-m">
+            <figure class="{{class_block}}__image">
               <img src="{{ image_url }}" alt="{{ image_alt }}" class="{{class_block}}__image-source">
             </figure>
             {% endif %}
@@ -110,9 +110,24 @@
               <span class="{{class_block}}__metadata-value">
                 {{ node.getCreatedTime|date('F j, Y') }}
               </span>
+              <div class="{{class_block}}__metadata-type">
+                {% set type_name = node.field_article_type.entity.name.value %}
+                {% set type_id = node.field_article_type.entity.tid.value %}
+                {%
+                  set classes_type = [
+                    'type',
+                    'type-' ~ node.bundle|clean_class,
+                    'type-' ~ node.bundle|clean_class ~ '--term-' ~ type_id,
+                    class_block ~ '__type',
+                  ]
+                %}
+                <span class="{{classes_type|join(' ')}}">
+                  {{type_name}}
+                </span>
+              </div>
             </div>
             <div class="{{class_block}}__metadata-item">
-              <span class="{{class_block}}__metadata-label co-green">{{'COMPARTIR'|t}}</span>
+              <span class="{{class_block}}__metadata-label co-cyan">{{'COMPARTIR'|t}}</span>
               <div class="{{class_block}}__social-sharing">
                 {{ drupal_block("social_sharing_buttons_block") }}
               </div>

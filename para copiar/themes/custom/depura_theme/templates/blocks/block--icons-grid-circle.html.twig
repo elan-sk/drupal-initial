@@ -26,7 +26,7 @@
 * @see template_preprocess_block()
 */
 #}
-{% set class_block = 'mosaic-icons' %}
+{% set class_block = 'mosaic-icons-circle' %}
 
 {%
 set classes = [
@@ -34,6 +34,7 @@ set classes = [
 'block-' ~ configuration.provider|clean_class,
 'block-' ~ plugin_id|clean_class,
 'section-padding',
+class_block ~ block_id,
 class_block,
 ]
 %}
@@ -44,25 +45,39 @@ class_block,
 {% set color_variation = content.field_color_variation['#items'].value %}
 {% set cards_row = content.field_number_cards_row['#items'].value %}
 {% set is_left = '1' in content.field_is_left_aligned['#items'].value %}
+{% set custom_background = content.field_custom_background['#items'].value %}
+{% set custom_text = content.field_custom_text['#items'].value %}
 
 {% if color_variation %}
   {% set class_variation = class_block ~ "--bg-" ~ color_variation %}
-  {% if color_variation != 'white' and color_variation != 'alabaster' and color_variation != 'yellow' and color_variation != 'clean' %}
+  {% if color_variation != 'white' and color_variation != 'gray' and color_variation != 'clean' %}
     {% set class_variation = class_variation ~ " co-white" %}
   {% endif %}
+{% endif %}
+
+{% if custom_background and custom_text %}
+  <style>
+    {{'.' ~ class_block ~ block_id}} {
+      background-color: {{custom_background}} !important;
+    }
+
+    {{'.' ~ class_block ~ block_id}} * {
+      color: {{custom_text}} !important;
+    }
+  </style>
 {% endif %}
 
 <section{{ attributes.addClass(classes, class_variation) }}>
   <div class="container">
     {{ title_prefix }}
-      {% if label %}
-      <header class="{{class_block}}__title text-center transition-scroll mb-5">
-        <h2{{ title_attributes }}>{{ label }}</h2>
+      <header class="{{class_block}}__title text-center transition-scroll mb-5 pb-3">
+        {% if label %}
+          <h2{{ title_attributes }}>{{ label }}</h2>
+        {% endif %}
         {% if body %}
           {{body}}
         {% endif %}
       </header>
-      {% endif %}
     {{ title_suffix }}
 
     <div class="{{class_block}}__items row g-5 {{is_left ? 'justify-content-start' : 'justify-content-center'}}">
@@ -78,17 +93,17 @@ class_block,
           <div class="card transition-scroll mb-5 {{class_block}}-card {{cards_row}} {{is_left ? class_block ~ '-card--left-aligned' : ''}}">
             <article class="card__wrapper {{class_block}}-card__wrapper">
               {% if image_url %}
-              <figure class="card__image {{class_block}}-card__image">
+              <figure class="card__image {{class_block}}-card__image mb-4">
                 <img src="{{image_url}}" alt="{{image_alt}}" class="w-100"/>
               </figure>
               {% endif %}
               {% if card_title %}
-              <header class="card__title {{class_block}}-card__title mb-3">
-                <h3>{{ card_title }}</h3>
+              <header class="card__title {{class_block}}-card__title mb-0 text-center">
+                <h3 class="h4">{{ card_title }}</h3>
               </header>
               {% endif %}
               {% if card_body %}
-                <div class="card__body {{class_block}}-card__body">
+                <div class="card__body {{class_block}}-card__body text-center">
                     {{card_body  | raw }}
                 </div>
               {% endif %}

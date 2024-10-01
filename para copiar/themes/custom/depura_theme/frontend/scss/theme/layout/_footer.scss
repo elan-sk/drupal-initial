@@ -1,79 +1,129 @@
 .main-footer {
-  border-radius: $corner-l $corner-l 0 0;
-  margin-top: rem(-60px) !important;
-  position: relative;
-  text-align: center;
-  z-index: 1;
-
   * {
     @extend %reset-transition;
     background-color: transparent;
+    line-height: 1.3;
   }
 
-  &__left{
-    * {
-      text-align: center;
+  span {
+    font-size: rem(10px) !important;
+
+    @include from(xl) {
+      font-size: rem(13px) !important;
+    }
+  }
+
+  a {
+    font-size: rem(15px) !important;
+  }
+
+  &__container {
+    overflow: hidden;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    @include from(l) {
+      flex-wrap: nowrap;
+    }
+    justify-content: space-between;
+  }
+  &__right {
+    display: initial;
+    @include from(l) {
+      flex: 0 0 auto;
+    }
+    .region,
+    .region-footer-right {
+      gap: rem(60px);
+      margin-top: rem(30px);
       @include from(l) {
-        text-align: left;
+        display: flex;
+        margin-top: 0;
+      }
+    }
+    nav {
+      margin-top: rem(30px);
+      @include from(m) {
+        margin-top: 0;
+      }
+    }
+  }
+  &__left {
+    justify-content: center;
+    padding: rem(10px) 0;
+    flex: 0 0 auto;
+    @include from(l) {
+      flex: 1 1 0;
+    }
+    .logo {
+      &__item {
+        img {
+          max-width: rem(260px);
+          height: auto;
+          @include from(l) {
+            max-width: rem(400px);
+          }
+        }
+      }
+    }
+    .region,
+    .region-footer-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      @include from(l) {
+        align-items: start;
       }
     }
 
-    .logo__link {
-      img{
-        margin: auto;
-        width: rem(120px);
-
-        @include from(l){
-          width: rem(130px);
+    .social-media {
+      margin-top: rem(30px);
+      @include from(l) {
+        margin-top: rem(60px);
+      }
+      header {
+        justify-content: center;
+        @include from(m) {
+          justify-content: start;
+        }
+      }
+      &__content-button {
+        justify-content: center;
+        align-items: center;
+        gap: rem(54px);
+        @include from(l) {
+          gap: rem(50px);
+        }
+      }
+      &__item {
+        align-items: center;
+        img {
+          width: rem(35px);
+          @include from(l) {
+            width: rem(40px);
+          }
         }
       }
     }
   }
-
-  &__center{
-    .logo__link {
-      img{
-        margin: auto;
-        width: rem(250px);
-
-        @include from(l){
-          width: rem(350px);
-        }
-      }
+  &__copy-two {
+    align-items: end;
+    text-align: start;
+    @include from(l) {
+      text-align: end;
+      justify-content: end;
     }
   }
-
-  &__right{
-    * {
-      text-align: center;
-
-      @include from(l) {
-        text-align: right;
-      }
-    }
+  .bg-green {
+    height: rem(10px);
+    background: $degraded;
   }
-
-  .nav-item {
-    margin-bottom: space(.45);
-  }
-
-  .nav-link {
-    font-weight: bold;
-    display: inline;
-    padding: 0;
-    transition: all .32s ease-in-out;
-
-    &:hover, &:active, &:focus {
-      color: $green-lt;
-    }
-  }
-
-  .block-basic {
-    &, * {
-      @extend %body-s;
-      font-weight: bold;
-      margin: 0;
-      padding: 0;
-    }
+  ul,
+  a,
+  .nav-link,
+  .navbar-nav {
+    margin: rem(10px) 0;
+    padding: space(0.05) 0 !important;
   }
 }

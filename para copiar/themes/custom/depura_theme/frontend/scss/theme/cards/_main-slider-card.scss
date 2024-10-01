@@ -1,28 +1,47 @@
-.main-slider-card{
-  @include background-cover;
+
+.main-slider-card {
+  position: relative;
+
+  &__image {
+    display: none;
+
+    @include from(l) {
+      display: block;
+    }
+  }
 
   &__content {
-    aspect-ratio: 16/20;
-    padding: space(.75);
-    padding-bottom: space(1);
+    @include bgCover('../img/fondo-texto.png');
+    top: 0;
+    justify-content: flex-start;
+    align-items: center;
 
-    @include from(m){
-      aspect-ratio: 16/10;
-      padding: space(3);
-      padding-bottom: space(5.5);
-    }
-
-    @include from(l){
-      aspect-ratio: 16/6;
-    }
-
-    @include from(xl){
-      aspect-ratio: initial;
-      min-height: rem(700px);
+    @include from(xl) {
+      justify-content: center;
     }
   }
+
+  &__text {
+    @include from(l) {
+      max-width: rem(750px);
+    }
+  }
+
+  &__image-icon {
+    img{
+      width: rem(100px);
+    }
+  }
+
   &__title {
-    text-wrap: balance;
-    max-width: rem(600px);
+    text-wrap: initial;
+  }
+
+  &__body {
+    p {
+      font-size: rem(20px);
+    }
   }
 }
+
+

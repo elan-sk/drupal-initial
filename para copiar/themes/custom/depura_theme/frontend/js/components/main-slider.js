@@ -1,7 +1,8 @@
 import { GnCarousel } from '../libraries/slick'
-import { responsiveSliderNumL, BREAKPOINTS } from "../libraries/utils";
+import { BREAKPOINTS } from "../libraries/utils";
 
-const numbersSlider = responsiveSliderNumL(3);
+
+
 
 const SELECTORS = {
   component: '.js-main-slider'
@@ -16,7 +17,6 @@ const OPTIONS = {
   slidesToScroll: 1,
   variableHeight: false,
   infinite:true,
-  // fade: true,
   mobileFirst: true,
   responsive: [
     {

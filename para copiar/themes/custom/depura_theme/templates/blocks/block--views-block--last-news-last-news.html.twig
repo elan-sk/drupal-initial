@@ -26,7 +26,7 @@
  * @see template_preprocess_block()
  */
 #}
-{% set class_block = 'last-project' %}
+{% set class_block = 'last-article' %}
 
 {%
   set classes = [
@@ -42,7 +42,7 @@
     {{ title_prefix }}
     {% if label %}
     <header class="{{class_block}}__title text-center transition-scroll mb-5">
-      <h2{{ title_attributes }} class="co-green">{{ label }}</h2>
+      <h2{{ title_attributes }} class="co-black-dk">{{ label }}</h2>
       {% if body %}
         {{body}}
       {% endif %}

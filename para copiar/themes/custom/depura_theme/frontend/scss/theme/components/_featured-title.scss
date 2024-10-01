@@ -1,0 +1,31 @@
+.featured-title {
+  &__header {
+    @include from(l){
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      & > * {
+        max-width: rem(1000px);
+      }
+    }
+  }
+
+  &__title {
+    display: inline-block;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom:rem(-20px);
+      width: 100%;
+      height: rem(5px);
+      background: $degraded;
+    }
+  }
+}
+
+.featured-title + .banner-50 {
+  margin-top: space(2);
+}

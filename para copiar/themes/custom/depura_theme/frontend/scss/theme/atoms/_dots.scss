@@ -6,23 +6,27 @@
     li {
       bottom: rem(-30px);
       display: inline-block;
+      width: rem(27px) !important;
+      margin: 0;
+
       button {
-        background-color: rgba($green, 0.4);
+        background-color: rgba($black-dk, 0.4);
         border: none;
         border-radius: 50%;
         font-size: 0;
-        height: 12px;
+        height: rem(10px) !important;
         margin: 0;
-        width: 12px;
+        width: rem(15px) !important;
 
         &::before {
           content: "";
+          width: 0;
         }
       }
 
       &.slick-active {
         button {
-          background-color: $green;
+          background-color: $black-dk;
         }
       }
     }

@@ -24,7 +24,7 @@ Description: Renders a slider block with a single multiple field that references
 {% if color_variation %}
   {% set class_variation = class_block ~ "--bg-" ~ color_variation %}
   {% if color_variation == 'white' or color_variation == 'clean' %}
-    {% set card_bg = "bg-alabaster" %}
+    {% set card_bg = "bg-gray" %}
   {% else %}
     {% set card_bg = "bg-white" %}
   {% endif %}
@@ -43,27 +43,26 @@ Description: Renders a slider block with a single multiple field that references
         {% set link_url = item.field_link.uri %}
         {% set link_title = item.field_link.title %}
 
-        <div class="{{class_block}}-card px-2">
+        <div class="{{class_block}}-card px-3">
           <div class="{{class_block}}-wrapper d-flex flex-wrap flex-md-nowrap corner-s p-0 {{card_bg}}">
 
             {% if image_url %}
-            <figure class="{{class_block}}-card__image m-0 corner-s">
               <a href="{{link_url}}">
-                <img src="{{ image_url }}"
-                alt="{{ image_alt }}" class="w-100"/>
+                <figure class="{{class_block}}-card__image m-0 corner-s">
+                  <img src="{{ image_url }}" alt="{{ image_alt }}" class="w-100"/>
+                </figure>
               </a>
-            </figure>
             {% endif %}
-            <div class="{{class_block}}-card__content p-4">
+            <div class="{{class_block}}-card__content p-4 d-flex flex-column justify-content-between align-items-start flex-nowrap">
               <a class="text-decoration-none" href="{{link_url}}">
                 <h2 class="{{class_block}}-card__title">{{ item.field_title.value }}</h2>
               </a>
               {% if link_url %}
-              <a href="{{link_url}}" class="{{class_block}}-card__button button-text">
+              <a href="{{link_url}}" class="{{class_block}}-card__button button-text text-start">
               {{link_title}} >>
               </a>
               {% endif %}
-              </div>
+            </div>
           </div>
         </div>
       {% endfor %}

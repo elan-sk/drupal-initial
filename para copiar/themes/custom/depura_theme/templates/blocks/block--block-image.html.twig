@@ -38,9 +38,9 @@
   ]
 %}
 <section{{attributes.addClass(classes)}}>
+  {% block content %}
   {% set image_url = file_url(content.field_image[0]['#media'].field_media_image.entity.uri.value) %}
   {% set image_alt = content.field_image[0]['#media'].field_media_image.alt %}
-  {% block content %}
     <figure class="{{class_block}}__image w-100">
       <img src="{{ image_url }}" alt="{{ image_alt }}" />
     </figure>

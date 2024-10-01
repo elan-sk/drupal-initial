@@ -1,0 +1,29 @@
+.maps {
+  &__title {
+    &::before {
+      @include imageBg('../img/location.svg');
+      @include square(rem(68px));
+      content: "";
+      margin-bottom: space(1);
+    }
+  }
+
+  &__maps {
+    .leaflet-pane {
+      .leaflet-shadow-pane {
+        img {
+          margin-top: -5px;
+        }
+      }
+
+      .leaflet-marker-pane {
+        img{
+          transition: all .32s ease-in-out;
+          &:hover, &:active, &:focus {
+            filter: brightness(1.3);
+          }
+        }
+      }
+    }
+  }
+}

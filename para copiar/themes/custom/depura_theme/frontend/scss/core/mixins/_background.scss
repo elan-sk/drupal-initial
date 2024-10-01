@@ -1,12 +1,12 @@
 @mixin imageBg($path, $height: null, $width: null) {
-  display: block;
   background-image: url($path);
-  background-size: 100%;
-  background-repeat: no-repeat;
   background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  display: block;
   font-size: 0;
-  text-indent: -999999px;
   overflow: hidden;
+  text-indent: -999999px;
 
   @if $height {
     height: $height;
@@ -18,7 +18,8 @@
 }
 
 
-@mixin background-cover {
+@mixin bgCover($path) {
+  background-image: url($path);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

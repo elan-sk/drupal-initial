@@ -44,13 +44,18 @@ class_block,
 {% set field_icon_cards = content.field_icon_cards %}
 {% set color_variation = content.field_color_variation['#items'].value %}
 {% set is_left = '1' in content.field_is_left_aligned['#items'].value %}
-
+{% set number_slider = content.field_image_slide['#items'].value %}
 
 {% if color_variation %}
   {% set class_variation = class_block ~ "--bg-" ~ color_variation %}
-  {% if color_variation != 'white' and color_variation != 'alabaster' and color_variation != 'yellow' and color_variation != 'clean' %}
+  {% if color_variation != 'white' and color_variation != 'gray' and color_variation != 'clean' %}
     {% set class_variation = class_variation ~ " co-white" %}
   {% endif %}
+{% endif %}
+
+{% set class_js = "js-" ~ class_block %}
+{% if number_slider %}
+  {% set class_js = "js-" ~ class_block ~ '-' ~ number_slider %}
 {% endif %}
 
 <section{{ attributes.addClass(classes, class_variation) }}>
@@ -75,10 +80,10 @@ class_block,
   </div>
 
   <div class="position-relative container-xxl">
-    <div class="{{class_block}}__items js-{{class_block}} container">
+    <div class="{{class_block}}__items {{class_js}} container">
       {% set card_items = content.field_images['#items'] %}
       {% if card_items %}
-        {% for key, item in card_items %}
+        {% for item in card_items %}
           {% set card_item = item.entity %}
           {% set image_url = file_url(card_item.field_media_image.entity.uri.value) %}
           {% set image_alt = card_item.field_media_image.alt %}
@@ -114,3 +119,12 @@ class_block,
 
 </section>
 {% endblock %}
+
+
+
+{% set card_items = content.field_images['#items'] %}
+{% if card_items %}
+  {% for item in card_items %}
+
+  {% endfor %}
+{% endif %}

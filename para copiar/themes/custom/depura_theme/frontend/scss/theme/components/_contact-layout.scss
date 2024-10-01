@@ -1,5 +1,5 @@
 .contact-layout {
-  background-color: $alabaster;
+  background-color: $white;
   padding: rem(30px) 0;
 
   @include from(l) {
@@ -15,7 +15,7 @@
     }
 
     a {
-      color: $orange;
+      color: $cyan;
     }
   }
 
@@ -28,7 +28,7 @@
   }
 
   &__image {
-    @include fluid-aspect(1 1);
+    @include fluid-aspect(16 9);
     margin-bottom: rem(20px);
     width: 100%;
 
@@ -47,7 +47,7 @@
     margin-bottom: rem(40px);
 
     a {
-      color: $orange;
+      color: $cyan;
     }
 
     > div {
@@ -58,8 +58,8 @@
       &:before {
         content: '';
         display: block;
-        height: rem(37px);
-        width: rem(37px);
+        height: rem(46.5px);
+        width: rem(46.5px);
       }
     }
   }

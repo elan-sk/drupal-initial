@@ -4,137 +4,191 @@
   top: 0;
   z-index: 8888;
 
+  .navbar-nav .nav-link.active:not(.root) {
+    color: $green !important;
+  }
+
+  .region-nav-main {
+    background-color: $white;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    @include from(l) {
+      flex-direction: row;
+    }
+  }
+
+  .social-media {
+    width: auto;
+    &__content-button {
+      align-items: center;
+      background-color: $white !important;
+      margin: 0 !important;
+      padding: space(0.25) 0 !important;
+
+      @include from(l) {
+        background-color: $white !important;
+        padding: 0 !important;
+      }
+    }
+    &__link {
+      img {
+        height: rem(40px);
+        transition: filter 0.3s ease;
+        width: auto !important;
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        img {
+          filter: brightness(1.25);
+        }
+      }
+    }
+  }
+
   .dropdown-item.active,
   .media-library-view--widget .view-header a.dropdown-item.is-active,
   .dropdown-item:active {
-    background-color: $orange;
+    background-color: $black-dk;
     color: $white;
   }
 
-  &__nav{
+  &__nav {
     padding: 0 !important;
+    font-weight: 500;
 
-    @include from(xl){
+    @include from(xl) {
       margin: 0 space(1);
     }
   }
 
-  .nav-link, .dropdown-item {
-    font-weight: bold;
-    color: $orange
+  .nav-link {
+    font-weight: 500 !important;
+
+    .dropdown-item {
+      font-weight: 500 !important;
+      color: $black-dk;
+    }
+    &.is-active {
+      color: $green !important;
+    }
   }
 
-  &-mb{
+
+  &-mb {
     display: flex;
     justify-content: space-between;
     margin: 0 rem(15px);
     width: 100%;
-    @include from(l){
+    @include from(l) {
       width: auto;
     }
-    &__branding{
-      div{
+    &__branding {
+      div {
         margin: 0;
-        padding: 0;
-        .site-logo{
-          img{
-            flex:1 0 rem(120px);
-            margin:0;
-            height: rem(80px);
+        padding: space(0.1);
+        .site-logo {
+          img {
+            width: rem(140px);
+
+            @include from(l) {
+              height: auto;
+              width: rem(190px);
+            }
           }
         }
       }
       margin: 0;
     }
-    .navbar-toggler{
-      @include imageBg('../img/menu-open.png', rem(50px), rem(50px));
+    .navbar-toggler {
+      @include imageBg("../img/menu-open.png", rem(50px), rem(50px));
     }
   }
-  &__navbar{
-    background-color: $alabaster;
-    padding: 0 0 0 rem(20px);
-    position:absolute;
-    right:0;
-    top:7vh;
-    width: rem(250px);
+  &__navbar {
+    background-color: $white;
+    max-width: rem(400px);
+    padding: space(0.5) space(0.5);
+    position: absolute;
+    right: 0;
+    top: 7vh;
+    width: auto;
     z-index: 3000;
 
-    .nav-level-0 {
-      justify-content: center !important;
+    @include from(l) {
+      max-width: initial;
     }
 
-    @include from(l){
+    .nav-level-0 {
+      justify-content: end !important;
+    }
+
+    @include from(l) {
       padding: 0;
       position: relative;
-      top:0;
+      top: 0;
     }
-    div{
+    div {
       display: flex;
       width: 100%;
-      nav{
+      nav {
         width: 100%;
         display: flex;
-        justify-content: center;
-        ul{
-          background-color: $alabaster;
+        justify-content: end;
+        ul {
+          background-color: $white;
           width: 100%;
-          @include from(l){
+          @include from(l) {
             background-color: transparent;
           }
         }
-        li{
-          .nav-link{
-            color:$orange;
+        li {
+          .nav-link {
+            color: $black-dk;
           }
-          @include from(l){
-            margin:0 auto;
+          @include from(l) {
+            margin: 0 auto;
           }
         }
       }
     }
     margin: 0;
-    .nav-item{
-      color: $orange;
+    .nav-item {
+      color: $black-dk;
       font-size: rem(17.5px);
-      margin: 0 space(.5) !important;
-      @include from(xl){
+      margin: 0 !important;
+
+      @include from(xl) {
         font-size: rem(18.5px);
       }
       a {
-        &:hover{
-          color: $orange;
+        padding: space(0.25) space(0.75) !important;
+
+        &:hover {
+          color: $green;
         }
       }
     }
-    .dropdown{
-      &>a{
-        color: $orange !important;
+    .dropdown {
+      & > a {
+        color: $black-dk !important;
+        &:hover,
+        &:active,
+        &:focus {
+          color: $green !important;
+        }
       }
-      ul{
-        background-color: $alabaster;
+      ul {
+        background-color: $white;
         border: none;
+        overflow: hidden;
         padding: 0;
         width: rem(220px);
-        a{
+        a {
           white-space: pre-wrap;
         }
       }
-    }
-  }
-  &__whatsapp2{
-    margin: rem(20px) 0 !important;
-
-
-    @include from(l){
-      display: none !important;
-    }
-
-    .navbar-nav {
-      background-color: transparent;
-    }
-
-    .nav-link {
-      color: $white !important;
     }
   }
 
@@ -143,13 +197,18 @@
   }
 
   &--hidden {
+    margin-bottom: -$header_height_m !important;
     position: static;
-  }
 
+    @include from(l) {
+      margin-bottom: -$header_height_l !important;
+    }
+  }
 
   &--sticky {
     margin-top: initial;
     position: fixed;
+    box-shadow: 0 3px 3px rgba(black, 0.2);
   }
 }
 
@@ -157,6 +216,6 @@
   background-color: transparent;
 }
 
-.navbar-nav .nav-link.active:not(.root){
-  color: $orange;
+.navbar-nav .nav-link.active:not(.root) {
+  color: $green;
 }

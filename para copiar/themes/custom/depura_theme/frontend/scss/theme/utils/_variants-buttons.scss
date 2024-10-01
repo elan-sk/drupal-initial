@@ -1,41 +1,20 @@
-*[class*="bg-orange"]:not(.root) {
+*[class*="bg-cyan"]:not(.root) {
   .button-primary {
-    border: 2px solid $white;
-  }
-  .button-secondary{
-    &:hover {
-      color: $brown;
-    }
-  }
-  .button-link{
-    &:hover, &:active, &:focus {
-      color: $brown;
-    }
+    border: 1px solid $white !important;
   }
 }
 
-*[class*="bg-green"]:not(.root) {
-  .button-header {
-    &:hover {
-      border: 2px solid $white;
-    }
-  }
-}
-
-*[class*="bg-green-lt"]:not(.root) {
+*[class*="bg-green"]:not(.root), *[class*="bg-green-lt"]:not(.root) {
   .button-primary {
     &:hover {
-      border: 2px solid $white;
+      border: 1px solid $white !important;
     }
   }
 
-  .button-primary--vr {
+  .button-secondary {
     &:hover, &:active, &:focus {
-      border: 2px solid $white;
+      border: 1px solid $white !important;
     }
-  }
-
-  .button-header {
-    border: 2px solid $white;
   }
 }
+

@@ -6,3 +6,6 @@
 
 //variantes Color de texto
 @include variant-all("co", color, $variant-color);
+
+//variantes Color de texto - hover
+// @include variant-all-hover("co-hv", color, $variant-color);

@@ -1,17 +1,21 @@
 .block-form{
-  margin-top: space(-2);
   padding-bottom: space(3);
+
+  a{
+    color: $green !important;
+    font-weight: 700;
+  }
 
   form{
     @extend %form;
   }
 
+  .form-wrapper {
+    @extend %form-wrapper;
+  }
+
   .form-item {
     @extend %form-item;
-
-    &.form-item-terms {
-      @extend %form-item-terms;
-    }
   }
 
   .form-control {
@@ -26,19 +30,20 @@
     @extend %form-tel;
   }
 
+
   .iti--allow-dropdown {
     display: block;
     width: 100%;
   }
 
   .iti__flag-container {
-    margin-left: space(.5)
+    margin-left: space(.5);
   }
 
   .webform-button--submit {
     @extend %button-primary;
-    min-width: 100%;
     margin: space(.5);
+    min-width: 100%;
   }
 
   #ajax-wrapper {
@@ -48,13 +53,43 @@
     }
   }
 
+  .form-type-webform-terms-of-service {
+    &.form-item {
+      @extend %form-item-terms;
+    }
+  }
+
+  .webform-type-radios {
+    & > legend {
+      margin-bottom: space(.5);
+      margin-left: rem(30px);
+      width: initial !important;
+    }
+
+    .fieldset-wrapper {
+      margin: 0 !important;
+    }
+
+    .form-radios {
+      @extend %form-radio;
+    }
+  }
+
+  .form-type-textarea  {
+    padding-top: space(.75);
+  }
+
   .webform-element-help {
     background-color: $green-lt;
-    color: $white;
     border-color: $green;
+    color: $white;
 
     &--title , &--content {
       color: white;
     }
   }
+}
+
+.block-basic + .block-form {
+  margin-top: space(-2);
 }

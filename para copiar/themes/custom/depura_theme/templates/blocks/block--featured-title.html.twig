@@ -26,32 +26,35 @@
  * @see template_preprocess_block()
  */
 #}
-{% set class_block = 'last-project' %}
+{% set class_block = 'featured-title' %}
 
 {%
   set classes = [
     'block',
     'block-' ~ configuration.provider|clean_class,
     'block-' ~ plugin_id|clean_class,
-    'section-padding',
+    'd-flex justify-content-center align-center pt-5 pb-0',
     class_block,
   ]
 %}
-<section{{ attributes.addClass(classes) }}>
-  <div class="container">
-    {{ title_prefix }}
-    {% if label %}
-    <header class="{{class_block}}__title text-center transition-scroll mb-5">
-      <h2{{ title_attributes }} class="co-green">{{ label }}</h2>
-      {% if body %}
-        {{body}}
-      {% endif %}
-    </header>
-    {% endif %}
-  {{ title_suffix }}
 
-  {% block content %}
-    {{ content }}
-  {% endblock %}
-  </div>
+{% block content %}
+{% set body = content.body[0] %}
+
+<section{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if label %}
+  <header class="{{class_block}}__header text-center">
+    <h2 class="{{class_block}}__title"{{ title_attributes }}>
+      {{ label }}
+    </h2>
+    {% if body %}
+      <div class="{{class_block}}__body mt-5">
+        {{body}}
+      </div>
+    {% endif %}
+  </header>
+  {% endif %}
+  {{ title_suffix }}
 </section>
+{% endblock %}

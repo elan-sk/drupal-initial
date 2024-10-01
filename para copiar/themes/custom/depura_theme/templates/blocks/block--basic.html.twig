@@ -43,14 +43,16 @@
 {% set additional_link = content.field_additional_link[0]['#url'] %}
 {% set additional_link_text = content.field_additional_link[0]['#title'] %}
 {% set color_variation = content.field_color_variation['#items'].value %}
+{% set is_left = '1' in content.field_is_left_aligned['#items'].value %}
 
 {% if color_variation %}
   {% set class_variation = class_block ~ "--bg-" ~ color_variation %}
-  {% if color_variation != 'white' and color_variation != 'alabaster' and color_variation != 'yellow' and color_variation != 'clean' %}
+  {% if color_variation != 'white' and color_variation != 'gray' and color_variation != 'clean' %}
     {% set class_variation = class_variation ~ " co-white" %}
   {% endif %}
 {% endif %}
 
+{% block content %}
 <section{{ attributes.addClass(classes, class_variation) }}>
   <div class="container">
     {{ title_prefix }}
@@ -58,8 +60,7 @@
       <h2 class="text-center"{{ title_attributes }}>{{ label }}</h2>
     {% endif %}
     {{ title_suffix }}
-    {% block content %}
-      <div class="{{class_block}}__wrapper text-center w-100">
+      <div class="{{class_block}}__wrapper {{is_left ? '' : 'text-center'}} w-100">
         {{ content.body }}
       </div>
       <div class="{{class_block}}__content-links d-flex justify-content-center">
@@ -71,13 +72,12 @@
         {% endif %}
         {% if additional_link %}
           <div class="{{class_block}}__link">
-            <a class="button-secondary" href="{{ additional_link }}"
-              target="{{'pdf' in additional_link|render|trim ? '_blank' : '_self'}}">
+            <a class="button-secondary" href="{{ additional_link }}" target="{{'pdf' in additional_link|render|trim ? '_blank' : '_self'}}">
               {{ additional_link_text }}
             </a>
           </div>
         {% endif %}
       </div>
-    {% endblock %}
-  </div>
+    </div>
 </section>
+{% endblock %}

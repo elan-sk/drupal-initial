@@ -3,4 +3,18 @@
     @include fluid-aspect(1 1, 'img');
   }
 
+  &__title {
+    min-height: rem(51px);
+
+    h3{
+      font-weight: 800 !important;
+      text-wrap: initial !important;
+    }
+  }
+
+  &__cta {
+    a {
+      font-weight: 900 !important;
+    }
+  }
 }

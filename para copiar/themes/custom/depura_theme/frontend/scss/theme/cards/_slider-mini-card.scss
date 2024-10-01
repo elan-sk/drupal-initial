@@ -1,11 +1,10 @@
 .slider-mini-card {
   &__image {
-    @include fluid-aspect(5 4, 'img');
-    width: 100%;
+    @include fluid-aspect(15 16, 'img');
+    width: rem(125px);
 
     @include from(m){
-      @include fluid-aspect(18 21, 'img');
-      @include width(rem(125px))
+      width: rem(150px);
     }
   }
 
@@ -18,7 +17,13 @@
 
   &__button {
     &, * {
+      color: $cyan !important;
       font-size: rem(15px);
+      transition: all .32s ease-in-out;
+
+      &:hover, &:active, &:focus {
+        color: $green !important;
+      }
     }
   }
 

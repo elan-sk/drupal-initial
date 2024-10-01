@@ -1,0 +1,18 @@
+.mosaic-icons-circle-card {
+  $self: &;
+
+  &__image {
+    text-align: center;
+
+    img {
+      height: rem(200px);
+      width: auto !important;
+    }
+  }
+
+  &__title {
+    @extend %body;
+    font-weight: bold !important;
+  }
+
+}

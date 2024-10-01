@@ -1,0 +1,189 @@
+%form{
+  & > * {
+    padding: 0 space(1) space(.5);
+
+    @include up-to(s){
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+%form-wrapper {
+  &:has(legend):not(.webform-type-radios) {
+    margin-bottom: space(.5);
+
+    @include from(l) {
+      margin-bottom: space(1.25);
+    }
+
+    & > legend{
+      background-color: $blue-dk;
+      border-radius: $corner-m;
+      margin-bottom: space(1.25) !important;
+      padding: space(1) space(2);
+
+      @include from(l) {
+        border-radius: rem(50px);
+        padding: space(1.5) space(4);
+      }
+
+      &, * {
+        color: $white;
+        margin: 0;
+      }
+    }
+
+    & > .fieldset-wrapper {
+      padding: 0 space(1);
+
+      @include from(l) {
+          padding: 0 space(3);
+      }
+
+      & > .form-item {
+        margin-bottom: space(.75);
+        padding: 0 space(.75);
+
+        @include from(l) {
+          margin-bottom: space(.75);
+          padding: 0 space(1.25);
+        }
+      }
+    }
+
+
+  }
+}
+
+%form-item {
+  justify-content: space-between;
+  margin: 0;
+
+  @include up-to(s){
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  label {
+    color: $black-dk;
+    font-weight: 800 !important;
+    margin-bottom: space(.25);
+    margin-left: rem(30px);
+    @extend %body-s;
+  }
+}
+
+%form-control{
+  border: 2px solid $black-dk;
+  border-radius: $corner-l;
+  font-size: rem(21px);
+  min-height:  $corner-l;
+  padding: space(.25) space(1) !important;
+}
+
+%form-textarea {
+  @extend %scroll-bar;
+  border-radius: $corner-l;
+  min-height:  $corner-l * 6;
+  padding: space(1) space(1.5) !important;
+  transition: all .32s ease-in-out;
+
+  &.overflow-active {
+    border-radius: $corner-l rem(5px) rem(5px) $corner-l;
+
+    &::-webkit-scrollbar, &::-webkit-scrollbar-thumb {
+      overflow: hidden !important;
+    }
+  }
+}
+
+%form-item-terms{
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  margin: space(.5) 0;
+  padding-bottom: 0;
+
+  label{
+    color: $black-dk;
+    font-weight: 400 !important;
+    margin-bottom: 0;
+    margin-left: space(.5);
+
+    a{
+      color: $green;
+      font-weight: 500 !important;
+    }
+  }
+
+  input {
+    @include square(2em);
+    border: 3px solid $black-dk;
+    border-radius: 0;
+    margin: 0;
+    transition: all 0.3s ease-in;
+
+    &:checked{
+      background-color: $black-dk;
+    }
+  }
+}
+
+%form-tel{
+  padding-left: space(2.25) !important;
+}
+
+%form-radio {
+  display: flex;
+  margin-right: space(1);
+  max-width: max-content;
+  margin: 0;
+  padding: 0;
+  width: initial !important;
+
+  .form-item {
+    display: flex;
+    align-items: center;
+    margin-right: space(1);
+    margin-left: space(.5);
+  }
+
+  label {
+    font-weight: normal !important;
+    margin: 0 !important;
+  }
+
+  & input[type="radio"] {
+    appearance: none;
+    border: 2px solid $blue-dk;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-block;
+    height: 20px;
+    margin-right: 8px;
+    position: relative;
+    width: 20px;
+  }
+
+  & input[type="radio"]:checked {
+    background-color: $blue-dk;
+  }
+
+  & input[type="radio"]::after {
+    background: $white;
+    border-radius: 50%;
+    content: "";
+    display: none;
+    height: 10px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+  }
+
+  & input[type="radio"]:checked::after {
+    display: block;
+  }
+}

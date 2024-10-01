@@ -4,11 +4,13 @@ description: 'Depura Theme subtheme based on Bootstrap 5 theme.'
 core_version_requirement: '^9.4 || ^10'
 'base theme': bootstrap5
 libraries:
+  - depura_theme/leaflet_cdn
   - depura_theme/fa_cdn
   - depura_theme/fonts_cdn
   - depura_theme/slider_cdn
   - depura_theme/material_cdn
   - depura_theme/global-styling
+
 regions:
   header: Header
   nav_branding: 'Navigation branding region'

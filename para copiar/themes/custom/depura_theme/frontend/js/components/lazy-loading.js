@@ -21,24 +21,32 @@ function isInViewport(element) {
 function lazyLoad() {
   return new Promise((resolve, reject) => {
     const elements = document.querySelectorAll('.lazy-load');
+
+    let dots = 0;
+    const loadingInterval = setInterval(function() {
+        dots = (dots + 1) % 4;
+        let text = ".".repeat(dots);
+        $("#ellipsis-loading").text(text);
+    }, 200);
+
     elements.forEach((element) => {
       if (isInViewport(element)) {
         element.src = element.dataset.src;
         element.classList.remove('lazy-load');
       }
     });
-    resolve();
+    resolve(loadingInterval);
   });
 }
 
 $(document).ready(function() {
-    lazyLoad().then(() => {
-      setTimeout(function() { //Retardo de tiempo
+    lazyLoad().then((loadingInterval) => {
+      setTimeout(function() {
         viewTransition('exit', $loader, () => {
           $loader.removeClass('active');
-          $('body').removeClass('loader-active')
+          $('body').removeClass('loader-active');
+          clearInterval(loadingInterval);
         });
       }, 500);
     });
 });
-

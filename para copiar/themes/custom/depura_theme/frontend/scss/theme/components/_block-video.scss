@@ -1,14 +1,21 @@
 .block-video {
   .block-video__wrapper {
     position: relative;
-    border: rem(10px) solid $black;
+    border: rem(7px) solid black;
 
-    @include fluid-aspect(4 3);
+    @include fluid-aspect(4 3); 
     @include from(m){
       @include fluid-aspect(10 6);
+      margin: 0 auto;
     }
     @include from(l){
-      @include fluid-aspect(16 8);
+      @include fluid-aspect(16 9);
+      max-width: rem(1000px);
+    }
+    @include from(xl){
+      @include fluid-aspect(16 9);
+      max-width: 90%;
+
     }
 
     video, iframe {

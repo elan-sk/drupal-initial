@@ -46,9 +46,6 @@
   }
   &__text {
     @extend %transition-scroll;
-    @include from(l){
-      max-width: rem(800px);
-    }
   }
   &__content-cards {
     .view-content {

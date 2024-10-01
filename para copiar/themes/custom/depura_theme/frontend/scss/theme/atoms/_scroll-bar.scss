@@ -3,10 +3,10 @@
 
   &::-webkit-scrollbar {
     width: rem(15px);
-    background-color: $alabaster;
+    background-color: $gray
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: $orange;
+    background: $cyan;
   }
 }

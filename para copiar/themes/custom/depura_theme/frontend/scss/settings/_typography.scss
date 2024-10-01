@@ -1,22 +1,26 @@
 html:not(.root) {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 %h1, .h1:not(.root), .h1:not(.root) *, h1:not(.root) {
-  color: $green;
+  color: $black-dk;
   font-family: $font-primary;
   font-size: rem(40px);
-  font-weight: 800;
+  font-weight: bold;
   text-wrap: balance;
 
   @include from(l) {
+    font-size: rem(48px);
+  }
+
+  @include from(xl) {
     font-size: rem(48px);
   }
 }
 
 %h2, .h2:not(.root), .h2:not(.root) *, h2:not(.root) {
   @extend %h1;
-  font-size: rem(31px);
+  font-size: rem(32px);
 
   @include from(l) {
     font-size: rem(40px);
@@ -25,49 +29,61 @@ html:not(.root) {
 
 %h3, .h3:not(.root), .h3:not(.root) *, h3:not(.root) {
   @extend %h2;
+  font-size: rem(24px);
+  @include from(l){
+    font-size: rem(32px);
+  }
+}
+
+%h4, .h4:not(.root), .h4:not(.root) *, h4:not(.root) {
+  @extend %h3;
   font-size: rem(20px);
   @include from(l){
     font-size: rem(24px);
   }
 }
 
-%h4, .h4:not(.root), .h4:not(.root) *, h4:not(.root) {
-  @extend %h3;
-  font-size: rem(18px);
-  @include from(l){
-    font-size: rem(22px);
-  }
-}
-
-%button-text, .button-text, .button-text * {
+%button-text:not(.root), .button-text:not(.root), .button-text:not(.root) * {
   @extend %h1;
   cursor: pointer;
-  font-size: rem(18px);
+  font-size: rem(15px);
   text-align: center;
   text-decoration: none;
 
   @include from(l){
+    font-size: rem(16px);
+  }
+
+  @include from(xl) {
     font-size: rem(20px);
   }
 }
 
-%body, .body, .body * {
+%body:not(.root), .body:not(.root), .body:not(.root) * {
   @extend %h2;
-  color: $black;
+  color: $black-dk;
   font-size: rem(16px);
   font-weight: 400;
   text-wrap: initial;
+
   @include from(l){
     font-size: rem(18px);
   }
+
+  @include from(xl) {
+    font-size: rem(20px)
+  }
 }
 
-%body-s, .body-s, .body-s * {
+%body-s:not(.root), .body-s:not(.root), .body-s:not(.root) * {
   @extend %body;
-  font-size: rem(14px);
+  font-size: rem(15px);
   font-weight: 400;
   @include from(l) {
     font-size: rem(16px);
+  }
+  @include from(xl) {
+    font-size: rem(18.2px)
   }
 }
 
@@ -75,21 +91,28 @@ p, ul:not(.root), ol:not(.root), div {
   @extend %body;
 }
 
+.text-balance {
+  &, * {
+    text-wrap: balance !important;
+  }
+}
+
 main {
-  a {
+  a:not(.root) {
     color: $green;
-    font-weight: 800;
+    font-weight: bold;
+    text-decoration: none;
 
     &:hover, &:active, &:focus {
-      color: $green-lt;
+      color: $cyan;
     }
 
   }
 }
 
-strong, b {
+strong:not(.root), b:not(.root) {
   font-family: $font-primary;
-  font-weight: 800;
+  font-weight: bold;
 }
 
 
@@ -108,7 +131,9 @@ strong, b {
   overflow: hidden;
 }
 
-%corner-bottom, .corner-bottom {
-  border-radius: 0 0 $corner-m $corner-m;
+%corner-left-bottom, .corner-bottom {
+  border-radius: 0 0 0 $corner-l;
   overflow: hidden;
 }
+
+

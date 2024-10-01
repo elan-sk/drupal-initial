@@ -21,16 +21,33 @@
   }
 
   &__icon {
-      @include circle(rem(125px));
+    @include rectangle(rem(300px), rem(100px));
+    margin-right: rem(24px);
   }
 
   &__img {
-    @include square(100%);
+    @include square(rem(100px));
     background-image: none;
+  }
+
+  &__logotipo {
+    @include rectangle(rem(200px), rem(100px));
+    @extend %fade-in;
+    background-image: none;
+    position: relative;
   }
 
   &__text {
     @extend %h4;
+    position: relative;
+    padding-bottom: 15vh;
+  }
+
+  &__ellipsis {
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    left: calc(100% + 1px);
   }
 
   &.active{
@@ -38,6 +55,10 @@
 
     #{$self}__img {
       @include imageBg('../img/loading.gif');
+    }
+
+    #{$self}__logotipo {
+      @include imageBg('../img/texto.png');
     }
   }
 }

@@ -17,18 +17,18 @@
   }
 
   &__arrow {
-    @include rectangle(rem(30px), rem(20px));
+    @include rectangle(rem(32px), rem(22px));
     cursor: pointer;
-    fill: $green;
+    fill: $black-dk;
     filter: drop-shadow(rem(1.5px) rem(2.5px) 0 $white);
     pointer-events: all;
 
     @include from(s){
-      @include rectangle(rem(45px), rem(38px));
+      @include rectangle(rem(35px), rem(32px));
     }
 
     @include from(l) {
-      @include rectangle(rem(58px), rem(38px));
+      @include rectangle(rem(45px), rem(32px));
     }
   }
 

@@ -1,4 +1,4 @@
-.last-project, .last-news {
+.last-article {
   padding-bottom: 0 !important;
 
   .teaser-card {
@@ -21,7 +21,12 @@
   .view-content {
     display: flex;
     flex-wrap: wrap;
+    gap: space(2);
     justify-content: center;
+
+    @include from(l) {
+      gap: 0;
+    }
   }
 
   .views-row {
@@ -39,7 +44,7 @@
 }
 
 
-.last-project, .last-news  {
+.last-article {
   & + .block-basic {
     padding-top: space(2) !important;
     * {

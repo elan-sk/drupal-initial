@@ -1,8 +1,8 @@
 @function rem($size) {
-  @if str-index(quote($size), "px") {
-      @return $size / 16px * 1rem;
-  } @else if str-index(quote($size), "pt") {
-      @return $size / 12pt * 1rem;
+  @if unit($size) == px {
+    @return $size / 16px * 1rem;
+  } @else if unit($size) == pt {
+    @return $size / 12pt * 1rem;
   } @else {
     @error "Unidad invalida";
   }

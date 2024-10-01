@@ -1,0 +1,20 @@
+.mosaic-icons-small-card {
+  $self: &;
+
+  &__image {
+    img {
+      height: rem(100px);
+      width: auto !important;
+    }
+  }
+
+  &__title {
+    @extend %body;
+    font-weight: bold !important;
+  }
+
+  &__body {
+    min-height: rem(90px);
+  }
+
+}

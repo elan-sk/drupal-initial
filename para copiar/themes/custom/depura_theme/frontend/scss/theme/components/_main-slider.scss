@@ -1,6 +1,9 @@
 .main-slider {
   background-color: transparent;
-  margin-bottom: rem(-30px);
+
+  * {
+    margin: 0 !important;
+  }
 
   &__items {
     margin-bottom: 0 !important;
@@ -11,19 +14,21 @@
     max-width: rem(250px);
     @include center('horizontal');
     top: initial;
-    bottom: rem(90px);
+    bottom: space(.9);
     padding: 0;
     z-index: 9997;
 
-    @include from(m){
-      bottom: space(4.3);
-      left:rem(120px);
+
+    @include from(l){
+      bottom: space(1.75);
+      left: rem(110px);
+      max-width: rem(125px);
+    }
+
+    @include from(xl) {
       max-width: rem(150px);
     }
 
-    @include from(l){
-      max-width: rem(180px);
-    }
   }
 
   .carousel-arrows{
@@ -39,40 +44,29 @@
       }
     }
     &__arrow {
-      fill: $white;
-      filter: drop-shadow(rem(1.5px) rem(2.5px) 0 $black);
+      fill: $black-dk;
+      filter: drop-shadow(rem(1.5px) rem(2.5px) 0 $white);
     }
   }
 
   &__carousel-dots {
     .slick-dots{
-      bottom: space(2.5);
+      bottom: space(1.5);
+      width: 50%;
+      right: 0;
+      left: initial;
+
       li {
         button {
-          background-color: rgba($white, .4);
+          background-color: rgba($white, .4) !important;
+        }
+
+        &.slick-active{
+          button {
+            background-color: $white !important;
+          }
         }
       }
-
-      li.slick-active{
-        button {
-          background-color: $white;
-        }
-      }
-    }
-  }
-
-  &-social-media {
-    display: none;
-    position: absolute;
-    bottom: space(1);
-    right: space(2);
-
-    @include from(m) {
-      display: block;
-    }
-
-    &__content-button {
-      gap: space(.75);
     }
   }
 }

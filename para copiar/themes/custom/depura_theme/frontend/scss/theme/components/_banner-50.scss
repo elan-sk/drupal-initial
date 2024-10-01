@@ -12,8 +12,15 @@
     }
 
     @include from(l){
-      padding: space(2)!important;
-      padding-left: space(3) !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &-inner {
+      @include from(l) {
+        max-width: rem(750px);
+      }
     }
   }
 }

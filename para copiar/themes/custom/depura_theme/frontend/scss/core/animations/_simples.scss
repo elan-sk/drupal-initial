@@ -12,12 +12,14 @@
 }
 %fade-in-scale, .fade-in-scale {animation: fadeInScale .3s ease-in forwards;}
 
-//FADE OUT SCALE
-@keyframes fadeOutScale {
-  0% {opacity: 1;scale: 100%;}
-  100% {opacity: 0;scale: 80%;display: none;}
+
+//FADE LOOP
+@keyframes fadeSlow {
+  0% {opacity: 0;}
+  100% { opacity: 1;}
 }
-%fade-out-scale, .fade-out-scale {animation: fadeOutScale .3s ease-out forwards;}
+%fadeSlow, .fade-slow {animation: fadeSlow .7s ease-out forwards;}
+
 
 //SLIDE UP
 @keyframes slideUp {

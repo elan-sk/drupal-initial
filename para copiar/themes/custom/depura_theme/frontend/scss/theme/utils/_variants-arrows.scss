@@ -4,17 +4,39 @@
   }
 }
 
-*[class*="bg-alabaster"]{
+*[class*="bg-clean"], *[class*="bg-white"], *[class*="bg-gray"]  {
   .carousel-arrows__arrow{
-    fill: $green;
-    filter: drop-shadow(rem(1.5px) rem(2.5px) 0 $alabaster);
+    fill: $black-dk;
   }
 }
 
-*[class*="bg-white"], *[class*="bg-clean"]{
+*[class*="bg-white"] {
   .carousel-arrows__arrow{
-    fill: $green;
     filter: drop-shadow(rem(1.5px) rem(2.5px) 0 $white);
+  }
+}
+
+*[class*="bg-gray"] {
+  .carousel-arrows__arrow{
+    filter: drop-shadow(rem(1.5px) rem(2.5px) 0 $gray);
+  }
+}
+
+*[class*="bg-blue-dk"] {
+  .carousel-arrows__arrow{
+    filter: drop-shadow(rem(1.5px) rem(2.5px) 0 $blue-dk);
+  }
+}
+
+*[class*="bg-black-dk"] {
+  .carousel-arrows__arrow{
+    filter: drop-shadow(rem(1.5px) rem(2.5px) 0 $black-dk);
+  }
+}
+
+*[class*="bg-cyan"] {
+  .carousel-arrows__arrow{
+    filter: drop-shadow(rem(1.5px) rem(2.5px) 0 $cyan);
   }
 }
 
@@ -27,24 +49,6 @@
 *[class*="bg-green-lt"] {
   .carousel-arrows__arrow{
     filter: drop-shadow(rem(1.5px) rem(2.5px) 0 $green-lt);
-  }
-}
-
-*[class*="bg-black"] {
-  .carousel-arrows__arrow{
-    filter: drop-shadow(rem(1.5px) rem(2.5px) 0 $black);
-  }
-}
-
-*[class*="bg-brown"] {
-  .carousel-arrows__arrow{
-    filter: drop-shadow(rem(1.5px) rem(2.5px) 0 $brown);
-  }
-}
-
-*[class*="bg-orange"] {
-  .carousel-arrows__arrow{
-    filter: drop-shadow(rem(1.5px) rem(2.5px) 0 $orange);
   }
 }
 

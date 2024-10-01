@@ -3,7 +3,7 @@
 
   h2{
     margin: 0;
-    @extend %h3;
+    @extend %h4;
   }
 
   .form{
@@ -30,34 +30,38 @@
   .form-select {
     @extend %button-text;
     appearance: none;
-    background-image: url("../img/icons/dropdown_arrow_green.svg");
+    background-image: url("../img/icons/dropdown_arrow_cyan.svg");
     background-position: right space(0.5) center;
     background-repeat: no-repeat;
-    border: 2px solid $green;
+    border: 2px solid $cyan;
     border-radius: rem(50px);
-    color: $green;
+    color: $cyan !important;
     min-width: 100%;
     padding-bottom: rem(12px);
     padding-top: rem(12px);
+    padding-left: rem(20px);
+    padding-right: rem(43px);
 
     option {
-      color: $green;
+      color: $black-dk !important;
+      font-weight: 500;
     }
   }
   .form-wrapper {
     input {
       @extend %button-text;
       appearance: none;
-      background-color: $green;
-      border: 2px solid $green;
+      background-color: $cyan;
+      border: 2px solid $cyan;
       border-radius: rem(50px);
-      color: $white;
+      color: $white !important;
       min-width: 100%;
       padding: rem(12px) rem(30px);
 
       &:hover, &:active, &:focus {
-        background-color: $green-lt;
-        border-color: $green-lt;
+        background-color: $green;
+        border-color: $green;
+        color: $white !important;
       }
 
     }

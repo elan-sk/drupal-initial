@@ -1,37 +1,36 @@
 // Colors
-$alabaster: #F8F5F0;
 $white: #ffffff;
-$green: #0B6546;
-$green-lt: #8ECD0F;
-$black: #000000;
-$blue-lt: #99C8FB;
-$brown: #6B451E;
-$orange: #EC733A;
+$blue-dk: #0f1d31;
+$black-dk: #1f2937;
+$cyan: #27cec9;
+$green: #6dbe51;
+$green-lt: #8ecd0f;
+$gray: #f9f9f9;
+$degraded: linear-gradient(90deg, #a3d365 0%, #7ac356 54%, #27cec9 100%);
+$degraded-vertical: linear-gradient(0deg, #a3d365 0%, #7ac356 54%, #27cec9 100%);
+
 
 //Nombre de colores para variantes
 $variant-color: (
-  "alabaster":$alabaster,
   "white":$white,
+  "blue-dk":$blue-dk,
+  "black-dk":$black-dk,
+  "cyan":$cyan,
   "green":$green,
   "green-lt":$green-lt,
-  "black":$black,
-  "blue-lt":$blue-lt,
-  "brown":$brown,
-  "orange":$orange,
+  "gray":$gray,
   "clean":transparent,
 );
 
 // Fonts
-$font-primary: "Red Hat Display", sans-serif;
+$font-primary: "Montserrat", sans-serif;
 
 // header utils
-$header_height_m: rem(84px);
-$header_height_l: rem(86px);
+$header_height_m: 45px;
+$header_height_l: 46.388px;
 
 // corner
 $corner-s: rem(20px);
 $corner-m: rem(30px);
 $corner-l: rem(60px);
-
-
 

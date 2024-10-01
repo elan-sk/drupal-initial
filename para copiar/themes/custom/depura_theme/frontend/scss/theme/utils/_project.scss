@@ -1,0 +1,19 @@
+#project {
+  %button-primary-project, .button-primary, .webform-button--submit {
+    @extend %button-text;
+    background-color: $blue-dk !important;
+    border-color: $blue-dk !important;
+
+    &:hover, &:active, &:focus {
+      background-color: $green-lt !important;
+      border-color: $green-lt !important;
+    }
+  }
+
+  *[class*="bg-blue-dk"]:not(.root), *[class*="bg-black-dk"]:not(.root) {
+    .button-primary, .webform-button--submit {
+      border: 1px solid $white !important;
+    }
+  }
+
+}
